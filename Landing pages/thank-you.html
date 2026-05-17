@@ -6,16 +6,59 @@
 <title>Thanks — Vahdam</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --green:#004A2B; --gold:#AB8743; --black:#171717; --cream:#FBF5EA; --text:#171717; --muted:#6b6b6b; --hairline:#e5dfd0; }
+  :root {
+    --green:#004A2B; --green-dark:#003820; --gold:#AB8743;
+    --black:#171717; --cream:#FBF5EA; --text:#171717;
+    --muted:#6b6b6b; --hairline:#e5dfd0; --grey-bg:#f5f5f5;
+    --serif:'Lao MN','Lao Sangam MN','Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Proxima Nova','Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
   * { box-sizing:border-box; }
-  body { margin:0; font-family:'Proxima Nova','Montserrat','Helvetica Neue',Arial,sans-serif; background:#f5f5f5; color:var(--text); }
-  .page { max-width:520px; margin:0 auto; padding:64px 24px; text-align:center; }
+  body { margin:0; font-family:var(--sans); background:var(--grey-bg); color:var(--text); min-height:100vh; line-height:1.6; }
+  .page { max-width:560px; margin:0 auto; padding:56px 24px 80px; text-align:center; }
   .brand { font-size:13px; letter-spacing:5px; color:var(--green); font-weight:700; }
   .rule { width:48px; height:1px; background:var(--gold); margin:14px auto 36px; }
-  .card { background:#fff; border-radius:6px; padding:48px 32px; }
-  h1 { font-family:'Lao MN','Lao Sangam MN','Cormorant Garamond',Georgia,serif; font-size:28px; color:var(--green); font-weight:600; margin:0 0 14px; }
-  p { color:var(--muted); margin:0 0 28px; line-height:1.6; }
-  a.btn { display:inline-block; padding:14px 30px; background:var(--green); color:#fff; text-decoration:none; font-size:13px; letter-spacing:2px; text-transform:uppercase; border-radius:2px; font-weight:600; }
+  .card { background:#fff; border-radius:6px; padding:48px 32px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+
+  h1 { font-family:var(--serif); font-size:30px; line-height:1.25; color:var(--green); font-weight:600; margin:0 0 12px; }
+  .sub { color:var(--muted); margin:0 0 8px; line-height:1.6; font-size:15px; }
+
+  /* Star display block (only renders if rating was passed) */
+  .stars-block { margin:32px 0 4px; }
+  .stars-label { font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; font-weight:700; }
+  .stars { position:relative; display:inline-block; font-size:44px; line-height:1; color:var(--hairline); user-select:none; }
+  .stars .row { white-space:nowrap; letter-spacing:4px; }
+  .stars .fill { position:absolute; top:0; left:0; height:100%; overflow:hidden; color:var(--gold); white-space:nowrap; letter-spacing:4px; width:0%; }
+  .rating-num { font-family:var(--serif); font-size:32px; color:var(--green); font-weight:600; margin-top:18px; line-height:1; }
+  .rating-num .unit { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-left:8px; font-family:var(--sans); vertical-align:middle; font-weight:600; }
+
+  /* Feedback echo block (only renders if feedback was passed) */
+  .feedback-quote {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 32px 0 8px;
+    text-align: left;
+    border-radius: 0 3px 3px 0;
+  }
+  .quote-label { font-size:10px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+  .quote-text { font-family:var(--serif); font-size:17px; color:var(--text); line-height:1.55; margin:0; font-style:italic; word-wrap:break-word; }
+
+  /* Follow-up confirmation (only renders if user opted in) */
+  .followup {
+    font-size:13px; color:var(--text);
+    background:#f5f8f4;
+    border:1px solid #d9e6dc;
+    padding:12px 18px; border-radius:3px;
+    margin:24px 0 0; line-height:1.5;
+  }
+  .followup strong { color:var(--green); }
+
+  .divider { width:36px; height:1px; background:var(--hairline); margin:32px auto; }
+
+  a.btn { display:inline-block; padding:14px 30px; background:var(--green); color:#fff; text-decoration:none; font-family:var(--sans); font-size:13px; letter-spacing:2px; text-transform:uppercase; border-radius:2px; font-weight:600; transition:background 0.2s; }
+  a.btn:hover { background:var(--green-dark); }
+  .footer { text-align:center; margin-top:32px; font-size:11px; color:var(--muted); letter-spacing:1px; }
 </style>
 </head>
 <body>
@@ -23,10 +66,63 @@
   <div class="brand">VAHDAM</div>
   <div class="rule"></div>
   <div class="card">
-    <h1>Got it. Thank you.</h1>
-    <p>Your rating's in. If you asked for someone to follow up, they will.</p>
+    <h1 id="heading">Got it. Thank you.</h1>
+    <p class="sub" id="sub">Your feedback's in. We read every one.</p>
+
+    <div class="stars-block" id="starsBlock" style="display:none;">
+      <div class="stars-label">You rated us</div>
+      <div class="stars">
+        <div class="row">★★★★★</div>
+        <div class="fill" id="fill">★★★★★</div>
+      </div>
+      <div class="rating-num"><span id="ratingValue">0</span><span class="unit">/ 5 STARS</span></div>
+    </div>
+
+    <div class="feedback-quote" id="feedbackQuote" style="display:none;">
+      <div class="quote-label">What you told us</div>
+      <p class="quote-text" id="feedbackText"></p>
+    </div>
+
+    <div class="followup" id="followup" style="display:none;">
+      <strong>Someone from our team will be in touch shortly.</strong><br>
+      Usually within a working day or two.
+    </div>
+
+    <div class="divider"></div>
     <a class="btn" href="https://vahdam.com">Back to Vahdam</a>
   </div>
+  <div class="footer">Vahdam India · New Delhi</div>
 </div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const rating   = parseFloat(params.get('rating') || '0');
+  const feedback = (params.get('feedback') || '').trim();
+  const name     = (params.get('name') || '').trim();
+  const optin    = params.get('optin') === '1' || params.get('optin') === 'true';
+
+  // Personalize heading with first name if available
+  if (name) {
+    document.getElementById('heading').textContent = 'Got it, ' + name + '. Thank you.';
+  }
+
+  // Render star block if rating is valid
+  if (rating > 0 && rating <= 5) {
+    document.getElementById('starsBlock').style.display = 'block';
+    document.getElementById('fill').style.width = (rating / 5 * 100) + '%';
+    document.getElementById('ratingValue').textContent = rating.toFixed(1).replace(/\.0$/, '');
+  }
+
+  // Echo back the feedback text (textContent — safe from XSS)
+  if (feedback) {
+    document.getElementById('feedbackQuote').style.display = 'block';
+    document.getElementById('feedbackText').textContent = '\u201C' + feedback + '\u201D';
+  }
+
+  // Confirm follow-up if user opted in
+  if (optin) {
+    document.getElementById('followup').style.display = 'block';
+  }
+</script>
 </body>
 </html>

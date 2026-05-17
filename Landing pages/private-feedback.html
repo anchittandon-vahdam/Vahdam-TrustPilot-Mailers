@@ -53,7 +53,8 @@
     font-size: 13px; color: var(--muted);
     letter-spacing: 2px; text-transform: uppercase; margin-left: 6px;
   }
-  .rating-hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 32px; font-style: italic; }
+  .rating-hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 32px; font-style: italic; transition: color 0.2s; }
+  .rating-hint.error { color: #c0392b; font-style: normal; font-weight: 600; }
 
   /* Form */
   label { display: block; font-size: 13px; color: var(--muted); margin: 22px 0 8px; letter-spacing: 0.5px; }
@@ -76,6 +77,7 @@
     transition: background 0.2s; font-weight: 600;
   }
   .btn:hover { background: var(--green-dark); }
+  .btn:disabled { background: var(--muted); cursor: not-allowed; }
   .micro { font-size: 12px; color: var(--muted); text-align: center; margin-top: 18px; line-height: 1.5; }
   .footer { text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
 </style>
@@ -121,7 +123,7 @@
         <label for="optin" style="margin:0; color: var(--text); font-size: 13px;">Get back to me — I'd like a person to follow up.</label>
       </div>
       <input type="hidden" id="rating-input" name="rating" value="">
-      <button type="submit" class="btn">Send</button>
+      <button type="submit" class="btn" id="submitBtn">Send</button>
     </form>
 
     <p class="micro">Two minutes, give or take. That's the whole thing.</p>
@@ -131,7 +133,104 @@
 </div>
 
 <script>
+  // ---- Read URL params from the mailer link ----
   const params = new URLSearchParams(location.search);
   let lockedRating = parseFloat(params.get('rating') || '0');
+  const firstName = (params.get('name') || '').trim();
 
-  const fill = document.getE
+  // ---- DOM refs ----
+  const fill         = document.getElementById('fill');
+  const stars        = document.getElementById('stars');
+  const ratingValue  = document.getElementById('ratingValue');
+  const ratingUnit   = document.getElementById('ratingUnit');
+  const ratingHint   = document.getElementById('ratingHint');
+  const ratingInput  = document.getElementById('rating-input');
+  const form         = document.getElementById('feedbackForm');
+  const fbInput      = document.getElementById('fb');
+  const optinInput   = document.getElementById('optin');
+  const submitBtn    = document.getElementById('submitBtn');
+
+  // ---- Render a given rating (hover preview or locked) ----
+  function paintRating(r) {
+    if (r > 0 && r <= 5) {
+      fill.style.width = (r / 5 * 100) + '%';
+      ratingValue.textContent = r.toFixed(1).replace(/\.0$/, '');
+      ratingValue.classList.remove('empty');
+      ratingUnit.textContent = '/ 5 STARS';
+    } else {
+      fill.style.width = '0%';
+      ratingValue.textContent = '—';
+      ratingValue.classList.add('empty');
+      ratingUnit.textContent = '';
+    }
+  }
+
+  // ---- On load: apply rating that came from the mailer ----
+  if (lockedRating > 0 && lockedRating <= 5) {
+    paintRating(lockedRating);
+    ratingInput.value = lockedRating;
+    ratingHint.textContent = 'That\u2019s what you picked from the email. Tap a different star to change.';
+  }
+
+  // ---- Hover preview on each hit zone ----
+  const hits = stars.querySelectorAll('.hit');
+  hits.forEach(hit => {
+    hit.addEventListener('mouseenter', () => {
+      paintRating(parseFloat(hit.dataset.rating));
+    });
+    hit.addEventListener('click', () => {
+      lockedRating = parseFloat(hit.dataset.rating);
+      ratingInput.value = lockedRating;
+      paintRating(lockedRating);
+      ratingHint.classList.remove('error');
+      ratingHint.textContent = 'Locked in. Hover to preview a different one.';
+    });
+  });
+
+  // ---- On mouseleave: snap back to whatever's locked ----
+  stars.addEventListener('mouseleave', () => {
+    paintRating(lockedRating);
+  });
+
+  // ---- Submit: redirect to thank-you.html with everything we want to surface ----
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!lockedRating || lockedRating <= 0) {
+      ratingHint.classList.add('error');
+      ratingHint.textContent = 'Please pick a rating first.';
+      stars.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const feedback = fbInput.value.trim();
+    if (!feedback) {
+      fbInput.focus();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending\u2026';
+
+    // ---- BUILD redirect URL ----
+    // NOTE: this client-side redirect echoes data back to the thank-you page
+    // so the user sees their submission confirmed. To actually CAPTURE this
+    // feedback for Vahdam's team, also POST these fields to a backend (Klaviyo,
+    // Formspree, a serverless endpoint, etc.) before redirecting.
+    const out = new URLSearchParams();
+    out.set('rating', lockedRating);
+    out.set('feedback', feedback);
+    out.set('optin', optinInput.checked ? '1' : '0');
+    if (firstName) out.set('name', firstName);
+
+    // Preserve attribution / identifier params from the mailer link
+    ['token','email','utm_source','utm_medium','utm_campaign','variant'].forEach(k => {
+      const v = params.get(k);
+      if (v) out.set(k, v);
+    });
+
+    window.location.href = 'thank-you.html?' + out.toString();
+  });
+</script>
+</body>
+</html>
