@@ -9,7 +9,7 @@ Two surfaces. Two deployment paths. The mailer is the inbox; the landing page is
 | File | Where it goes | How |
 |---|---|---|
 | `Mailers/A - Chai Morning Ritual.html` | Klaviyo | Upload as an email template |
-| `Mailers/B - Chai Pe Charcha.html` | Klaviyo | Upload as an email template |
+| `Mailers/B - Conversations Over Chai.html` | Klaviyo | Upload as an email template |
 | `Mailers/C - A Few Cups In.html` | Klaviyo | Upload as an email template |
 | `Mailers/D - Connoisseur (Tasting Notes).html` | Klaviyo | Upload as an email template |
 | `Mailers/E - Honesty Trade.html` | Klaviyo | Upload as an email template |
@@ -27,17 +27,12 @@ Two surfaces. Two deployment paths. The mailer is the inbox; the landing page is
 The mailer is what the customer sees inside Gmail / Outlook / Apple Mail. Email is a **read-only sandbox** — it can't run JavaScript, most CSS is stripped, forms can't submit. So the mailer can only contain:
 
 - Static HTML
-- Inline images (the hero photos + star halves are all base64-embedded — confirmed self-contained)
+- Inline images (the star halves are base64-embedded — confirmed self-contained)
 - Links that go somewhere else
 
 The landing page is what the customer sees **after they click a star in the email**. That's a real web page on `vahdam.com` — JavaScript runs, forms submit, the rating widget shows live hover preview, the customer can type a note. None of that works inside an inbox.
 
-Trying to put the landing page inside the mailer would mean:
-- The hover-to-preview rating widget would stop working (no `:hover` reliable in email)
-- The form would never submit (Gmail blocks form actions from email)
-- The live rating display would never update (no JavaScript in email)
-
-So the architectural split is forced by how email clients work, not by anything I can change.
+So the architectural split is forced by how email clients work, not by anything we can change.
 
 ---
 
@@ -46,14 +41,13 @@ So the architectural split is forced by how email clients work, not by anything 
 Each of the 7 HTML files in `Mailers/` is **a single self-contained file** with:
 
 - The full email HTML body
-- All images embedded as base64 data URIs — no CDN dependency, no broken-image risk
-  - Hero photos for A, C, D
-  - Star half-icons (10 of them per mailer — the 5-star rating widget)
+- Star half-icons embedded as base64 data URIs — no CDN dependency
+- The Vahdam logo hot-linked from `vahdam.com/cdn/shop/files/logo-website.png` (the live website logo)
 - One Google Fonts CSS `<link>` for Cormorant Garamond + Montserrat (Klaviyo handles this; the fallbacks `Georgia` + `Helvetica` cover any client that strips it)
 - All merge tags Klaviyo expects: `{{ first_name|default:'there' }}`, `{{ last_product_purchased }}`, `{{ token }}`, `{{ order_id }}`, `{{ email }}`, etc.
 - A/B subject lines as HTML comments at the top — copy these into Klaviyo's split test config
 
-That's it. Each file is 30–80 KB total. Open one in a browser to preview it. Drag it into Klaviyo's template editor and you're done.
+Each file is 25–30 KB total. Open one in a browser to preview it. Drag it into Klaviyo's template editor and you're done.
 
 ---
 
@@ -63,10 +57,10 @@ That's it. Each file is 30–80 KB total. Open one in a browser to preview it. D
 
 - The rating widget (10 hit zones across 5 visual stars, with live hover preview)
 - A pre-fill — when the URL has `?rating=2.5`, the page initializes with 2.5 stars locked in
-- A free-text box and an opt-in checkbox
+- A free-text box and additional fields that appear conditionally for sub-4★ ratings (what fell short, reorder intent, follow-up preference)
 - A submit handler that posts to your backend (currently stubbed; production needs to wire to your actual `/v1/feedback/private` endpoint or whatever Vahdam's stack uses)
 
-`Landing pages/thank-you.html` — what they see after submitting the private feedback form.
+`Landing pages/thank-you.html` — what they see after submitting. Echoes back their rating, comment, and confirms follow-up if they opted in.
 
 ---
 
@@ -75,7 +69,7 @@ That's it. Each file is 30–80 KB total. Open one in a browser to preview it. D
 1. Klaviyo → Email Templates → Create new template → "Drag & drop editor" → switch to "HTML editor" view.
 2. Copy-paste the entire contents of `Mailers/A - Chai Morning Ritual.html` (or whichever).
 3. Save with a name matching the file (e.g., "TP Funnel — A Chai Morning Ritual").
-4. Set up the flow that triggers this template (see Klaviyo Setup Guide.docx in Documents/).
+4. Set up the flow that triggers this template (see `Documents/2 - Klaviyo Setup Guide.docx`).
 5. Set the subject line — pick A or B from the HTML comments at the top of the file.
 6. Send yourself a test.
 7. Repeat for B through G.
@@ -94,25 +88,23 @@ On Shopify (which is most likely where vahdam.com lives):
 6. Save and publish.
 7. Repeat for `thank-you.html` at handle `feedback-thanks` (URL: `vahdam.com/pages/feedback-thanks`).
 
-If you're using a different platform, the principle is the same — these are plain HTML pages with a JavaScript form. Drop them onto any page hosting that accepts custom HTML.
+If you're using a different platform, the principle is the same — these are plain HTML pages with a JavaScript form.
 
 **The mailer URLs point to these exact paths:**
 - `https://vahdam.com/pages/private-feedback?rating=...` ← for ratings 0.5–3.5
 - `https://vahdam.com/pages/feedback-thanks` ← after submission
 
-If your Shopify URL structure differs (e.g., `/pages/feedback` instead of `/pages/private-feedback`), you'll need to update the 7 private-feedback URLs in each mailer to match. The find-and-replace is straightforward — search for `vahdam.com/pages/private-feedback` and swap.
+If your Shopify URL structure differs (e.g., `/pages/feedback` instead of `/pages/private-feedback`), you'll need to update the 7 private-feedback URLs in each mailer to match.
 
 ---
 
 ## What's NOT a deployment concern
 
-**The Trustpilot URL.** Ratings 4, 4.5, 5 link to `https://www.trustpilot.com/evaluate/vahdamteas.com?orderId=...` — this is Trustpilot's standard review form for the vahdamteas.com business unit. No deployment needed; the page already exists on Trustpilot's side.
+**The Trustpilot URL.** Ratings 4, 4.5, 5 link to `https://www.trustpilot.com/evaluate/vahdamteas.com?orderId=...` — Trustpilot's standard review form. No deployment needed.
 
-**Hero images for mailers A, C, D.** Base64-embedded in each mailer file. No CDN to set up.
+**The star half-images.** Base64-embedded in each mailer file.
 
-**The star half-images.** Also base64-embedded.
-
-**Web fonts.** The Google Fonts `<link>` in the `<head>` of each file fetches Cormorant Garamond + Montserrat from Google's CDN. Klaviyo and most email clients handle this fine. If your sender domain blocks fonts.googleapis.com (uncommon), the fallback stack — `Georgia, 'Times New Roman', serif` and `Helvetica, Arial, sans-serif` — kicks in automatically.
+**Web fonts.** Google Fonts link in the `<head>`. If your sender domain blocks fonts.googleapis.com (uncommon), the fallback stack (`Georgia` + `Helvetica`) kicks in automatically.
 
 ---
 
@@ -123,8 +115,9 @@ For each of the 7 mailers in Klaviyo:
 - [ ] Subject lines A and B set as a 50/50 split test
 - [ ] Merge tags substituting correctly in test sends (no `{{first_name}}` literals leaking)
 - [ ] Tested in Litmus or Email on Acid across Gmail, Outlook, Apple Mail, mobile
-- [ ] Star widget renders as 5 stars (not 10 stars in a row — that means the base64 images failed to load)
-- [ ] Each star is independently clickable (tap one in the actual sent email, confirm the URL has the expected `rating=` value)
+- [ ] Star widget renders as 5 full stars (not 10 half-stars in a row — that means the base64 images failed to load)
+- [ ] Each star half is independently clickable (tap one in the actual sent email, confirm the URL has the expected `rating=` value)
+- [ ] Hover on a star (Gmail / Apple Mail) shows the numeric rating update — Outlook fallback is acceptable static "— · —"
 - [ ] Suppression segments (S8, S9) excluded from the flow
 - [ ] Throttling (`last_funnel_send`) configured per the Klaviyo Setup Guide
 
@@ -132,9 +125,10 @@ For the landing pages on vahdam.com:
 
 - [ ] `/pages/private-feedback` returns the rating widget page
 - [ ] URL with `?rating=2.5` pre-fills the rating correctly
-- [ ] Hover preview works (move cursor across stars, verify the big "2.5 stars" updates live)
+- [ ] Hover preview works (move cursor across stars, verify the rating number updates live)
 - [ ] Form submission posts to your backend successfully
-- [ ] `/pages/feedback-thanks` displays the confirmation
+- [ ] Sub-4★ ratings reveal the conditional fields (what fell short, reorder, follow-up)
+- [ ] `/pages/feedback-thanks` displays the confirmation with rating + quote echoed back
 - [ ] Page tested on mobile (cursor-hover doesn't exist on mobile — tapping should still work for setting rating)
 
 When all the above pass, you're ready to send the first campaign.

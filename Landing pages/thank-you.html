@@ -7,121 +7,149 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:#004A2B; --green-dark:#003820; --gold:#AB8743;
-    --black:#171717; --cream:#FBF5EA; --text:#171717;
-    --muted:#6b6b6b; --hairline:#e5dfd0; --grey-bg:#f5f5f5;
-    --serif:'Lao MN','Lao Sangam MN','Cormorant Garamond',Georgia,'Times New Roman',serif;
-    --sans:'Proxima Nova','Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --green:#004A2B; --green-dark:#003820; --gold:#AB8743; --gold-dark:#8b6d35;
+    --cream:#FBF5EA; --cream-warm:#f4ecd6;
+    --black:#171717; --muted:#6b6b6b; --hairline:#dccfa8;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Montserrat','Proxima Nova',Helvetica,Arial,sans-serif;
   }
   * { box-sizing:border-box; }
-  body { margin:0; font-family:var(--sans); background:var(--grey-bg); color:var(--text); min-height:100vh; line-height:1.6; }
-  .page { max-width:560px; margin:0 auto; padding:56px 24px 80px; text-align:center; }
-  .brand { font-size:13px; letter-spacing:5px; color:var(--green); font-weight:700; }
-  .rule { width:48px; height:1px; background:var(--gold); margin:14px auto 36px; }
-  .card { background:#fff; border-radius:6px; padding:48px 32px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  body {
+    margin:0; font-family:var(--sans); background-color:var(--cream);
+    color:var(--black); line-height:1.55; min-height:100vh;
+  }
+  .page { max-width:560px; margin:0 auto; padding:0 20px 60px; text-align:center; }
+  .trust-strip { background:var(--green); margin:0 -20px 32px; padding:11px 20px; }
+  .trust-strip span { color:var(--gold); font-size:10px; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; }
+  .brand { font-family:var(--serif); font-size:22px; letter-spacing:9px; color:var(--black); font-weight:600; }
+  .brand sup { font-size:11px; letter-spacing:0; }
+  .brand-sub { font-size:9px; letter-spacing:5px; color:var(--muted); margin-top:6px; }
+  .rule { width:48px; height:1px; background:var(--gold); margin:18px auto 28px; }
 
-  h1 { font-family:var(--serif); font-size:30px; line-height:1.25; color:var(--green); font-weight:600; margin:0 0 12px; }
-  .sub { color:var(--muted); margin:0 0 8px; line-height:1.6; font-size:15px; }
+  h1 { font-family:var(--serif); font-size:32px; line-height:1.2; color:var(--green); font-weight:500; margin:0 0 10px; }
+  .sub { font-size:15px; color:var(--muted); margin:0 0 8px; line-height:1.55; }
 
-  /* Star display block (only renders if rating was passed) */
-  .stars-block { margin:32px 0 4px; }
-  .stars-label { font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:14px; font-weight:700; }
-  .stars { position:relative; display:inline-block; font-size:44px; line-height:1; color:var(--hairline); user-select:none; }
-  .stars .row { white-space:nowrap; letter-spacing:4px; }
-  .stars .fill { position:absolute; top:0; left:0; height:100%; overflow:hidden; color:var(--gold); white-space:nowrap; letter-spacing:4px; width:0%; }
-  .rating-num { font-family:var(--serif); font-size:32px; color:var(--green); font-weight:600; margin-top:18px; line-height:1; }
-  .rating-num .unit { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-left:8px; font-family:var(--sans); vertical-align:middle; font-weight:600; }
+  /* Stars card — same treatment as mailer/private-feedback */
+  .stars-card { background:var(--cream-warm); border:1px solid var(--hairline); border-radius:8px; padding:32px 16px 26px; margin:28px 0 8px; box-shadow:0 1px 3px rgba(139,109,53,0.05); }
+  .stars-label { font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; font-weight:700; margin-bottom:6px; }
+  .stars-subhead { font-family:var(--serif); font-size:20px; color:var(--green); font-style:italic; margin:0 0 22px; line-height:1.3; font-weight:500; }
+  .stars-row { display:flex; justify-content:center; gap:10px; }
+  .star { position:relative; width:48px; height:48px; }
+  .star-half { position:absolute; top:0; width:50%; height:100%; background-repeat:no-repeat; background-size:contain; background-position:center; }
+  .star-half-l { left:0; background-image:url('data:image/png;base64,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'); }
+  .star-half-r { right:0; background-image:url('data:image/png;base64,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'); }
+  .star-half-l.filled { background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAwCAYAAAALiLqjAAAFN0lEQVR4nNVYTWxUVRT+zrn3zczrzLTTlv6XFmiBtlhCBOKCxSMhSCIkxcVoNFFjJG0QIQQS4kIz7QaXGgkJcaELgwtmoZgYw8LEWQsRghAFlAKCQAtqIZ3OzLv3uJiZMm1aOw3TRE/yNi/vfef7zrvnO2cG+L8HLSV2woNaQvxCliXClKGd7W2hoPM6Vxo94XkKADTxK26Aj1ZcgQhoeCvUeE3neUXUU1EF8TgUEWQs1uEpxjpSTBUvEQCw4JBYQXNDVCpZIgZg9+9e3gVRF31jQ5s3dKBiChJeHssKv6YYbk11yFRHglQpBSQCHHqpPZTLqItWZFVPV5Msb4txRRTE42AiIJvjbVpTl9ZKGuojbIxUpkR9fRAAQpaGjLFoXBYRN+TAWvv0nZwAeASwe1/o7HUCdC7n29Cm9R2ojbnk+xa6DIxpEvH4TMV99z0CRnVi643sg/O0h0nculiVH6txte9bEM3hRYnEE5CRkbz0hRgIQAcGVtw21jb3rWlGW3OMcjkfRLRwid59tb8W+BsAMJlW3Y6maNaQwBpHxD4HYiZBp7X2TaWVbNm0kph5mlcxAQGQt+MNEcq4nxNxjYiIb2wUkO5iMiaqVUyQgiZHM4gA31gQK6ztakRzQxTGCIoNoIu1TSZhkHEPxiKB3Y8mfSjFqIkEoXR+ZogIggFH3JAWsQJSJNXhkBAD1oKCQa1qIiHkCrVHCXMAoEQCdPdse0tQqWEnwHsm0352TVcjr17ZoDIZHyCAiYhK3hYRSAHEisxgPjvBdJkAYP9A50HF/GHON2hriZme7iZljIW1swFmos3lC6XHTgpK+NjpGx9lfXlZKf7z9h9/qfOXbvvWChxHFYCocGHGNVfMeXtw40bnk3Pncnt3tW8OOvqkMXZ10A2Y/rWtqjoaQvEIlhPzPpXwoEdS8N96vr0uGna+sGJ3iJDp723lhvoI5XJmXtZlJQDyEyqZhAGAA7s7TyjmoXTGN72rm6ijrY593zxdAiDvNZfjoGQS5p2BFUOOohNTGR9trTFZu6pxwffLNTsq9sq+gRU7NOPkVMavb22OSX9PC/mzzn5plGvXkkzCeB708dOjZ3K+8bTmiVzOR3oqJ8zz81zUPEilYONxKDjqMUDOxKOpBa1wUQkSnsfJJIyysk0ruNFoyLquQ9bOn2VRCdY1NuaRBJ61glg0JEzTBjBnLGaiEQA5vL0pnA6FrjCjdcO6dqmLVc35kUUAZipfQSKRJzPlBnoVoclxtETDQZptcFLwckczMllfyi/R917+WVZbmKGi4aAJOGoasMhaawUiwpXrY+bshZtUzkzOx9aURQoEke0WwLK6cN7tIIVyMLQi3H/wWK5eHzPZbFb7RqbKbjQAsm9baz2q9DVWHNu0vkPCVQEqumw6ncPV6/f9e+MTOqAVQPQdxBwpS0GxizkaeAYiNYGAtm5IMxOBFeHGrYf2t5vjIIjWSt0xIu8f+3L0UwBlrS2F9SQFiOwkEqqtdk2VG+B744/k2ui4mZhIa2YCEX1mrHnv+Ne37hS3k7JKJAIaHgaN/dj5gyI829PdZKayPn4dHVeOIgjokhEcPn569AzwxOrLTUAAZPDFjhbH0s8EiigmMcYoIsqC8cHdX8JHk5cvZ+NxqFNJWCrpvAVL5HlQqRR87dPWsKuqJzMGBIAVf4usf+Tjb37/CXgyO2YzXlCBADScAD28sHwlg98gwqAROnDsq9FTJcAWZWyA/xbTRAZ3tSwD8itm6Zr51JEoMcZ4fOl+wZMs7d8P/8H4B/SfDIjrqCL9AAAAAElFTkSuQmCC'); }
+  .star-half-r.filled { background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAwCAYAAAALiLqjAAAFbUlEQVR4nNVYTWxUVRT+zrn3zk+n0wItJSUGqm5UNMYQIJHER4IsVNS4eGggxriwEnWhUXfG14kkuuQnYiQa4sZo3gLwJ0ZXzE40ioIUpCgdoC20QrE/zHTeu/e4mBamQIfBjFFP8lb3nvOd853zzjnvAf97CTxPBwD/2378fXltw+255x9dshoAgqDxkbBmvMmENwCgtxfUcICxyShSRPd3P7GkMwxhgcaCcHNzkoyiFh3TRgAIPE81FOC2W9p4KrJgwrOBB92Tz9uGArS3NbMxxjFj2fmWJQ8QAN9Hw6JgpQidC7MOAgjTMwDEh98o+2BrBYs6WpSABIKHutd3tm8IQ4cGJZudE7Q0pyiTSTijsDChk08AkMBrDE0MAMyEzo4WxFZEnDwXAIw1cA0BIAKsdehoyyqllDBh+chjXStyObhGJFsDgHMO6ZRBR1uzG/5jTDtyfhDge+xfagKvi3o78lKtFIazopt1dl0AgOCkkuzB4TEh0MaeHF4nFEpA4UZOUhBcKYhcbja1FL69tsoDwoGD/VIslomZdwuhAHGOiA+AVZRQQlEs401pe6JyvxXvfHx4tCZ6NQARYbJYxqHeAUxNRTCaIQJEsZs+B6wTOJEqo3RCKx4nIhJxf0qy+PTOcGQClTIXXY3mnCCbSeKeOxZjqhxbZog4YGyyRGKFiAnFUkxT5Wg+UYUVG9sVxVIE6wTZTAKjE3gZwBbfB4ch7CwAIiCOHbLNSbRSSsm0Gx3t2ct3RARORCBAMqnRd3LEHv9t2DWldWJ8IvrAWrc7CMAzuZgFcJkGK7CzikOqAABmIqUYh44O2oGhizqZ0ChH7pUdnxW2AgC+rNADzDGLia5+CDOUGKPgnOCnIwPxwNBFpRSPlmN5cse+wtbpiXjZ+HUjmEtEBMZojI2XcPjXQTtVLGujuW8qije998WZ77uXLze53A/R1Xp1AYgAxmiMnJ+Qw0cHHZEopdTX45PRxg+/OXMh8KBz+WuN1w1gjMKpgQvuaN85SSe1sk7e37rn5GagMjtyIeK5dOvaIo4cH5Jjfec4ndQqsrJ5+97CZt+HClApxVq6c0YgAmjNOHxsSAbPXqRUUp8vW9n07r7+r30farof1exDNQGYCcVSJFEUQ2sei2Lr7fz89BHPgw5rUHKNnZqnAoyNlwCQgVETvg+Vz9/cnJgTwDlBOm0om005rZBWTtaGIWzgeTe1/dW4LGAizMumxDkBBB4ALOvouCHvswBm3tBrtSozYv68jBIQrMODr65blNkQhje1/XFpKhJmgmKCyBWYmZ6UzSTJGC2KsKiUTtwJANUD5oYAB385Q4eODtpy2SJhNASVEgUq7SFhFLKZpGWGAqvVAID99eeBL5WikdGLk+rbg/3u9OCoU8zQaiYaAYjQviBDroK8DgBhTb7uSmKdSiwD+FMS4d6+s/zjL6fj8UtlGKMBIljr0JpNM4gAJ6tfXLt4wXSvr4sm3hGeGNm+9+RTIvKwMer45ERRHzhYwInfRxxTJTfplKFEQjtmauVs4m4A8P362gwDIN+H2ra38FVpnFcCvEUzov4z5/m7nwt25MKkNKUNFrSkHZEQRB4BgLuGvboiuHxpur9YAHjhsa5VCUXbALeqVHa4dWmbbUoZHP9tWFnBjwvvK6zo6YEQ3bgXXe0FBZ6ncvl83L0cpmlJ12YReUuAVidkISAhmYhY7ti159QQrppec1FULZLL5+MgAO/6AdHWPf07YvBKAn9iFBRIOJNULTqmNQDg1bEg1+SxMqkqnfOlx7ue1CzbRLDLwX204N7TJ3tyEKqjZdeUIADPfN52r+9sr9e5m5bqTfsf+zMgFa8b/i3935a/AKH1arNBULcKAAAAAElFTkSuQmCC'); }
 
-  /* Feedback echo block (only renders if feedback was passed) */
+  /* Rating readout — matching mailer/private-feedback */
+  .rating-readout { margin:22px 0 4px; line-height:1; }
+  .rating-readout .num {
+    font-family:var(--serif); font-size:32px; color:var(--green);
+    font-weight:600; letter-spacing:1px;
+  }
+  .rating-readout .unit {
+    font-family:var(--sans); font-size:11px; color:var(--muted);
+    letter-spacing:2.5px; font-weight:600; text-transform:uppercase;
+    margin-left:8px; vertical-align:middle;
+  }
+
   .feedback-quote {
-    background: var(--cream);
-    border-left: 3px solid var(--gold);
-    padding: 18px 22px;
-    margin: 32px 0 8px;
-    text-align: left;
-    border-radius: 0 3px 3px 0;
+    background:var(--cream-warm); border:1px solid var(--hairline); border-left:3px solid var(--gold);
+    padding:18px 22px; margin:24px 0 8px; text-align:left; border-radius:0 4px 4px 0;
   }
   .quote-label { font-size:10px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; font-weight:700; margin-bottom:8px; }
-  .quote-text { font-family:var(--serif); font-size:17px; color:var(--text); line-height:1.55; margin:0; font-style:italic; word-wrap:break-word; }
+  .quote-text { font-family:var(--serif); font-size:16px; color:var(--black); line-height:1.55; margin:0; font-style:italic; word-wrap:break-word; }
 
-  /* Follow-up confirmation (only renders if user opted in) */
-  .followup {
-    font-size:13px; color:var(--text);
-    background:#f5f8f4;
-    border:1px solid #d9e6dc;
-    padding:12px 18px; border-radius:3px;
-    margin:24px 0 0; line-height:1.5;
+  .followup-note {
+    font-size:13px; color:var(--black); background:#e8f0e8;
+    border:1px solid #c5dac8; padding:14px 18px; border-radius:4px;
+    margin:18px 0 0; line-height:1.5;
   }
-  .followup strong { color:var(--green); }
+  .followup-note strong { color:var(--green); }
 
   .divider { width:36px; height:1px; background:var(--hairline); margin:32px auto; }
-
-  a.btn { display:inline-block; padding:14px 30px; background:var(--green); color:#fff; text-decoration:none; font-family:var(--sans); font-size:13px; letter-spacing:2px; text-transform:uppercase; border-radius:2px; font-weight:600; transition:background 0.2s; }
+  a.btn {
+    display:inline-block; padding:14px 30px; background:var(--green); color:#fff;
+    text-decoration:none; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+    border-radius:3px; font-weight:600;
+  }
   a.btn:hover { background:var(--green-dark); }
-  .footer { text-align:center; margin-top:32px; font-size:11px; color:var(--muted); letter-spacing:1px; }
+
+  @media (max-width:480px) {
+    .star { width:42px; height:42px; }
+    .rating-readout .num { font-size:28px; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="brand">VAHDAM</div>
+  <div class="trust-strip"><span>♡ 250K+ 4.9★ Reviews · We Read Every One ♡</span></div>
+  <div class="brand">VAHDAM<sup>®</sup></div>
+  <div class="brand-sub">INDIA</div>
   <div class="rule"></div>
-  <div class="card">
-    <h1 id="heading">Got it. Thank you.</h1>
-    <p class="sub" id="sub">Your feedback's in. We read every one.</p>
 
-    <div class="stars-block" id="starsBlock" style="display:none;">
-      <div class="stars-label">You rated us</div>
-      <div class="stars">
-        <div class="row">★★★★★</div>
-        <div class="fill" id="fill">★★★★★</div>
-      </div>
-      <div class="rating-num"><span id="ratingValue">0</span><span class="unit">/ 5 STARS</span></div>
+  <h1 id="heading">Got it. Thank you.</h1>
+  <p class="sub" id="sub">A real person on our team will see this within the day.</p>
+
+  <div class="stars-card" id="starsCard" style="display:none;">
+    <div class="stars-label">— You Rated Us —</div>
+    <div class="stars-row" id="starsRow">
+      <div class="star"><div class="star-half star-half-l" data-rating="0.5"></div><div class="star-half star-half-r" data-rating="1"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="1.5"></div><div class="star-half star-half-r" data-rating="2"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="2.5"></div><div class="star-half star-half-r" data-rating="3"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="3.5"></div><div class="star-half star-half-r" data-rating="4"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="4.5"></div><div class="star-half star-half-r" data-rating="5"></div></div>
     </div>
-
-    <div class="feedback-quote" id="feedbackQuote" style="display:none;">
-      <div class="quote-label">What you told us</div>
-      <p class="quote-text" id="feedbackText"></p>
+    <div class="rating-readout">
+      <span class="num" id="ratingValue">0</span><span class="unit">/ 5 Stars</span>
     </div>
-
-    <div class="followup" id="followup" style="display:none;">
-      <strong>Someone from our team will be in touch shortly.</strong><br>
-      Usually within a working day or two.
-    </div>
-
-    <div class="divider"></div>
-    <a class="btn" href="https://vahdam.com">Back to Vahdam</a>
   </div>
-  <div class="footer">Vahdam India · New Delhi</div>
+
+  <div class="feedback-quote" id="feedbackQuote" style="display:none;">
+    <div class="quote-label">What you told us</div>
+    <p class="quote-text" id="feedbackText"></p>
+  </div>
+
+  <div class="followup-note" id="followupNote" style="display:none;">
+    <strong>Someone from our team will be in touch.</strong><br>
+    <span id="followupChannel">Usually within a working day.</span>
+  </div>
+
+  <div class="divider"></div>
+  <a class="btn" href="https://vahdam.com">Back to Vahdam</a>
 </div>
 
 <script>
   const params = new URLSearchParams(location.search);
-  const rating   = parseFloat(params.get('rating') || '0');
+  const rating = parseFloat(params.get('rating') || '0');
   const feedback = (params.get('feedback') || '').trim();
-  const name     = (params.get('name') || '').trim();
-  const optin    = params.get('optin') === '1' || params.get('optin') === 'true';
+  const name = (params.get('name') || '').trim();
+  const followup = (params.get('followup') || '').trim();
 
-  // Personalize heading with first name if available
   if (name) {
     document.getElementById('heading').textContent = 'Got it, ' + name + '. Thank you.';
   }
-
-  // Render star block if rating is valid
   if (rating > 0 && rating <= 5) {
-    document.getElementById('starsBlock').style.display = 'block';
-    document.getElementById('fill').style.width = (rating / 5 * 100) + '%';
-    document.getElementById('ratingValue').textContent = rating.toFixed(1).replace(/\.0$/, '');
+    document.getElementById('starsCard').style.display = 'block';
+    document.querySelectorAll('.star-half').forEach(h => {
+      if (parseFloat(h.dataset.rating) <= rating) h.classList.add('filled');
+    });
+    document.getElementById('ratingValue').textContent = rating % 1 === 0 ? rating : rating.toFixed(1);
   }
-
-  // Echo back the feedback text (textContent — safe from XSS)
   if (feedback) {
     document.getElementById('feedbackQuote').style.display = 'block';
-    document.getElementById('feedbackText').textContent = '\u201C' + feedback + '\u201D';
+    document.getElementById('feedbackText').textContent = '“' + feedback + '”';
   }
-
-  // Confirm follow-up if user opted in
-  if (optin) {
-    document.getElementById('followup').style.display = 'block';
+  if (followup && followup !== 'none') {
+    document.getElementById('followupNote').style.display = 'block';
+    if (followup === 'phone') {
+      document.getElementById('followupChannel').textContent = 'We’ll call you within 1–2 working days.';
+    } else if (followup === 'email') {
+      document.getElementById('followupChannel').textContent = 'You’ll hear from us by email within 1–2 working days.';
+    }
+  } else if (rating > 0 && rating < 4) {
+    document.getElementById('followupNote').style.display = 'block';
+    document.getElementById('followupNote').innerHTML = '<strong>This goes to our team, not public reviews.</strong><br>We read every one — and learn from the rough notes most of all.';
   }
 </script>
 </body>

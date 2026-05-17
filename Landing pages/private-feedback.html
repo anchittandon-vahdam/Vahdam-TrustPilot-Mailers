@@ -3,232 +3,289 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tell us about your last order — Vahdam</title>
+<title>Tell us how it went — Vahdam</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:#004A2B; --green-dark:#003820; --gold:#AB8743; --gold-dark:#8b6d35;
-    --black:#171717; --cream:#FBF5EA; --text:#171717; --muted:#6b6b6b;
-    --hairline:#e5dfd0; --grey-bg:#f5f5f5;
-    --serif: 'Lao MN','Lao Sangam MN','Cormorant Garamond',Georgia,'Times New Roman',serif;
-    --sans:  'Proxima Nova','Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --green:#004A2B; --green-dark:#003820;
+    --gold:#AB8743; --gold-dark:#8b6d35;
+    --cream:#FBF5EA; --cream-warm:#f4ecd6;
+    --input-bg:#fdf9ef; --black:#171717; --muted:#6b6b6b; --hairline:#dccfa8;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Montserrat','Proxima Nova','Helvetica Neue',Helvetica,Arial,sans-serif;
   }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: var(--sans); background: var(--grey-bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
-  .page { max-width: 600px; margin: 0 auto; padding: 48px 24px 80px; }
-  .brand { font-size: 13px; letter-spacing: 5px; color: var(--green); text-align: center; font-weight: 700; }
-  .rule { width: 48px; height: 1px; background: var(--gold); margin: 14px auto 36px; }
-  .card { background: #fff; border-radius: 6px; padding: 44px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-  h1 { font-family: var(--serif); font-size: 30px; line-height: 1.25; color: var(--green); font-weight: 600; margin: 0 0 12px; text-align: center; }
-  .sub { font-size: 15px; color: var(--muted); text-align: center; margin: 0 0 16px; line-height: 1.55; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; font-family:var(--sans); background-color:var(--cream);
+    color:var(--black); line-height:1.55; min-height:100vh;
+  }
+  .page { max-width:560px; margin:0 auto; padding:0 20px 60px; }
+  .trust-strip { background:var(--green); margin:0 -20px 32px; padding:11px 20px; text-align:center; }
+  .trust-strip span { color:var(--gold); font-size:10px; letter-spacing:2.5px; font-weight:700; text-transform:uppercase; }
 
-  /* ===== Star widget — half-star precision with live hover preview ===== */
-  .stars-wrap { text-align: center; padding: 18px 0 4px; }
-  .stars-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
-  .stars {
-    position: relative; display: inline-block;
-    font-size: 56px; line-height: 1;
-    color: var(--hairline); user-select: none; cursor: pointer;
-  }
-  .stars .row { white-space: nowrap; letter-spacing: 4px; }
-  .stars .fill {
-    position: absolute; top: 0; left: 0; height: 100%;
-    overflow: hidden; pointer-events: none;
-    color: var(--gold);
-    transition: width 0.08s linear;
-    width: 0%;
-    white-space: nowrap; letter-spacing: 4px;
-  }
-  .stars .hit { position: absolute; top: 0; height: 100%; width: 10%; }
+  .brand { font-family:var(--serif); font-size:22px; letter-spacing:9px; color:var(--black); font-weight:600; text-align:center; }
+  .brand sup { font-size:11px; letter-spacing:0; }
+  .brand-sub { text-align:center; font-size:9px; letter-spacing:5px; color:var(--muted); margin-top:6px; }
+  .rule { width:48px; height:1px; background:var(--gold); margin:18px auto 28px; }
 
-  /* Huge live-updating rating display */
-  .rating-display { text-align: center; margin: 22px 0 4px; min-height: 48px; }
-  .rating-display .value {
-    font-family: var(--serif); font-size: 42px; color: var(--green);
-    font-weight: 600; line-height: 1; display: inline-block;
-    transition: color 0.15s;
+  h1 { font-family:var(--serif); font-size:30px; line-height:1.2; color:var(--black); font-weight:500; margin:0 0 8px; text-align:center; }
+  h1 .accent { color:var(--gold); font-style:italic; }
+  .sub { font-size:15px; color:var(--muted); text-align:center; margin:0 0 24px; line-height:1.55; }
+
+  /* Star widget — matching mailer treatment */
+  .stars-card { background:var(--cream-warm); border:1px solid var(--hairline); border-radius:8px; padding:32px 16px 26px; margin-bottom:24px; box-shadow:0 1px 3px rgba(139,109,53,0.05); }
+  .stars-label { font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; text-align:center; font-weight:700; margin-bottom:6px; }
+  .stars-subhead { font-family:var(--serif); font-size:20px; color:var(--green); font-style:italic; text-align:center; margin:0 0 24px; line-height:1.3; font-weight:500; }
+  .stars-row { display:flex; justify-content:center; gap:10px; user-select:none; }
+  .star { position:relative; width:56px; height:56px; cursor:pointer; }
+  .star-half { position:absolute; top:0; width:50%; height:100%; background-repeat:no-repeat; background-size:contain; background-position:center; transition:background-image 0.1s, filter 0.15s; }
+  .star-half-l { left:0; background-image:url('data:image/png;base64,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'); }
+  .star-half-r { right:0; background-image:url('data:image/png;base64,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'); }
+  .star-half-l.filled { background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAwCAYAAAALiLqjAAAFN0lEQVR4nNVYTWxUVRT+zrn3zczrzLTTlv6XFmiBtlhCBOKCxSMhSCIkxcVoNFFjJG0QIQQS4kIz7QaXGgkJcaELgwtmoZgYw8LEWQsRghAFlAKCQAtqIZ3OzLv3uJiZMm1aOw3TRE/yNi/vfef7zrvnO2cG+L8HLSV2woNaQvxCliXClKGd7W2hoPM6Vxo94XkKADTxK26Aj1ZcgQhoeCvUeE3neUXUU1EF8TgUEWQs1uEpxjpSTBUvEQCw4JBYQXNDVCpZIgZg9+9e3gVRF31jQ5s3dKBiChJeHssKv6YYbk11yFRHglQpBSQCHHqpPZTLqItWZFVPV5Msb4txRRTE42AiIJvjbVpTl9ZKGuojbIxUpkR9fRAAQpaGjLFoXBYRN+TAWvv0nZwAeASwe1/o7HUCdC7n29Cm9R2ojbnk+xa6DIxpEvH4TMV99z0CRnVi643sg/O0h0nculiVH6txte9bEM3hRYnEE5CRkbz0hRgIQAcGVtw21jb3rWlGW3OMcjkfRLRwid59tb8W+BsAMJlW3Y6maNaQwBpHxD4HYiZBp7X2TaWVbNm0kph5mlcxAQGQt+MNEcq4nxNxjYiIb2wUkO5iMiaqVUyQgiZHM4gA31gQK6ztakRzQxTGCIoNoIu1TSZhkHEPxiKB3Y8mfSjFqIkEoXR+ZogIggFH3JAWsQJSJNXhkBAD1oKCQa1qIiHkCrVHCXMAoEQCdPdse0tQqWEnwHsm0352TVcjr17ZoDIZHyCAiYhK3hYRSAHEisxgPjvBdJkAYP9A50HF/GHON2hriZme7iZljIW1swFmos3lC6XHTgpK+NjpGx9lfXlZKf7z9h9/qfOXbvvWChxHFYCocGHGNVfMeXtw40bnk3Pncnt3tW8OOvqkMXZ10A2Y/rWtqjoaQvEIlhPzPpXwoEdS8N96vr0uGna+sGJ3iJDp723lhvoI5XJmXtZlJQDyEyqZhAGAA7s7TyjmoXTGN72rm6ijrY593zxdAiDvNZfjoGQS5p2BFUOOohNTGR9trTFZu6pxwffLNTsq9sq+gRU7NOPkVMavb22OSX9PC/mzzn5plGvXkkzCeB708dOjZ3K+8bTmiVzOR3oqJ8zz81zUPEilYONxKDjqMUDOxKOpBa1wUQkSnsfJJIyysk0ruNFoyLquQ9bOn2VRCdY1NuaRBJ61glg0JEzTBjBnLGaiEQA5vL0pnA6FrjCjdcO6dqmLVc35kUUAZipfQSKRJzPlBnoVoclxtETDQZptcFLwckczMllfyi/R917+WVZbmKGi4aAJOGoasMhaawUiwpXrY+bshZtUzkzOx9aURQoEke0WwLK6cN7tIIVyMLQi3H/wWK5eHzPZbFb7RqbKbjQAsm9baz2q9DVWHNu0vkPCVQEqumw6ncPV6/f9e+MTOqAVQPQdxBwpS0GxizkaeAYiNYGAtm5IMxOBFeHGrYf2t5vjIIjWSt0xIu8f+3L0UwBlrS2F9SQFiOwkEqqtdk2VG+B744/k2ui4mZhIa2YCEX1mrHnv+Ne37hS3k7JKJAIaHgaN/dj5gyI829PdZKayPn4dHVeOIgjokhEcPn569AzwxOrLTUAAZPDFjhbH0s8EiigmMcYoIsqC8cHdX8JHk5cvZ+NxqFNJWCrpvAVL5HlQqRR87dPWsKuqJzMGBIAVf4usf+Tjb37/CXgyO2YzXlCBADScAD28sHwlg98gwqAROnDsq9FTJcAWZWyA/xbTRAZ3tSwD8itm6Zr51JEoMcZ4fOl+wZMs7d8P/8H4B/SfDIjrqCL9AAAAAElFTkSuQmCC'); }
+  .star-half-r.filled { background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAwCAYAAAALiLqjAAAFbUlEQVR4nNVYTWxUVRT+zrn3zk+n0wItJSUGqm5UNMYQIJHER4IsVNS4eGggxriwEnWhUXfG14kkuuQnYiQa4sZo3gLwJ0ZXzE40ioIUpCgdoC20QrE/zHTeu/e4mBamQIfBjFFP8lb3nvOd853zzjnvAf97CTxPBwD/2378fXltw+255x9dshoAgqDxkbBmvMmENwCgtxfUcICxyShSRPd3P7GkMwxhgcaCcHNzkoyiFh3TRgAIPE81FOC2W9p4KrJgwrOBB92Tz9uGArS3NbMxxjFj2fmWJQ8QAN9Hw6JgpQidC7MOAgjTMwDEh98o+2BrBYs6WpSABIKHutd3tm8IQ4cGJZudE7Q0pyiTSTijsDChk08AkMBrDE0MAMyEzo4WxFZEnDwXAIw1cA0BIAKsdehoyyqllDBh+chjXStyObhGJFsDgHMO6ZRBR1uzG/5jTDtyfhDge+xfagKvi3o78lKtFIazopt1dl0AgOCkkuzB4TEh0MaeHF4nFEpA4UZOUhBcKYhcbja1FL69tsoDwoGD/VIslomZdwuhAHGOiA+AVZRQQlEs401pe6JyvxXvfHx4tCZ6NQARYbJYxqHeAUxNRTCaIQJEsZs+B6wTOJEqo3RCKx4nIhJxf0qy+PTOcGQClTIXXY3mnCCbSeKeOxZjqhxbZog4YGyyRGKFiAnFUkxT5Wg+UYUVG9sVxVIE6wTZTAKjE3gZwBbfB4ch7CwAIiCOHbLNSbRSSsm0Gx3t2ct3RARORCBAMqnRd3LEHv9t2DWldWJ8IvrAWrc7CMAzuZgFcJkGK7CzikOqAABmIqUYh44O2oGhizqZ0ChH7pUdnxW2AgC+rNADzDGLia5+CDOUGKPgnOCnIwPxwNBFpRSPlmN5cse+wtbpiXjZ+HUjmEtEBMZojI2XcPjXQTtVLGujuW8qije998WZ77uXLze53A/R1Xp1AYgAxmiMnJ+Qw0cHHZEopdTX45PRxg+/OXMh8KBz+WuN1w1gjMKpgQvuaN85SSe1sk7e37rn5GagMjtyIeK5dOvaIo4cH5Jjfec4ndQqsrJ5+97CZt+HClApxVq6c0YgAmjNOHxsSAbPXqRUUp8vW9n07r7+r30farof1exDNQGYCcVSJFEUQ2sei2Lr7fz89BHPgw5rUHKNnZqnAoyNlwCQgVETvg+Vz9/cnJgTwDlBOm0om005rZBWTtaGIWzgeTe1/dW4LGAizMumxDkBBB4ALOvouCHvswBm3tBrtSozYv68jBIQrMODr65blNkQhje1/XFpKhJmgmKCyBWYmZ6UzSTJGC2KsKiUTtwJANUD5oYAB385Q4eODtpy2SJhNASVEgUq7SFhFLKZpGWGAqvVAID99eeBL5WikdGLk+rbg/3u9OCoU8zQaiYaAYjQviBDroK8DgBhTb7uSmKdSiwD+FMS4d6+s/zjL6fj8UtlGKMBIljr0JpNM4gAJ6tfXLt4wXSvr4sm3hGeGNm+9+RTIvKwMer45ERRHzhYwInfRxxTJTfplKFEQjtmauVs4m4A8P362gwDIN+H2ra38FVpnFcCvEUzov4z5/m7nwt25MKkNKUNFrSkHZEQRB4BgLuGvboiuHxpur9YAHjhsa5VCUXbALeqVHa4dWmbbUoZHP9tWFnBjwvvK6zo6YEQ3bgXXe0FBZ6ncvl83L0cpmlJ12YReUuAVidkISAhmYhY7ti159QQrppec1FULZLL5+MgAO/6AdHWPf07YvBKAn9iFBRIOJNULTqmNQDg1bEg1+SxMqkqnfOlx7ue1CzbRLDLwX204N7TJ3tyEKqjZdeUIADPfN52r+9sr9e5m5bqTfsf+zMgFa8b/i3935a/AKH1arNBULcKAAAAAElFTkSuQmCC'); }
+  .star-half:hover { filter:drop-shadow(0 0 8px rgba(171,135,67,0.5)); }
+
+  /* Rating readout — matches mailer "— · — / 5 STARS" */
+  .rating-readout { text-align:center; margin:22px 0 4px; line-height:1; }
+  .rating-readout .num {
+    font-family:var(--serif); font-size:32px; color:var(--gold);
+    font-weight:600; letter-spacing:1px;
+    transition:color 0.15s;
   }
-  .rating-display .value.empty { color: var(--hairline); font-size: 28px; }
-  .rating-display .unit {
-    font-size: 13px; color: var(--muted);
-    letter-spacing: 2px; text-transform: uppercase; margin-left: 6px;
+  .rating-readout.is-set .num { color:var(--green); }
+  .rating-readout .unit {
+    font-family:var(--sans); font-size:11px; color:var(--muted);
+    letter-spacing:2.5px; font-weight:600; text-transform:uppercase;
+    margin-left:8px; vertical-align:middle;
   }
-  .rating-hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 32px; font-style: italic; transition: color 0.2s; }
-  .rating-hint.error { color: #c0392b; font-style: normal; font-weight: 600; }
+  .rating-hint { text-align:center; font-size:12px; color:var(--muted); margin:8px 0 0; font-style:italic; }
+  .rating-hint.error { color:#c0392b; font-style:normal; font-weight:600; }
 
   /* Form */
-  label { display: block; font-size: 13px; color: var(--muted); margin: 22px 0 8px; letter-spacing: 0.5px; }
-  textarea, input[type=text] {
-    width: 100%; padding: 14px;
-    border: 1px solid var(--hairline); border-radius: 3px;
-    font-family: inherit; font-size: 15px; line-height: 1.5;
-    background: #fefdf9; color: var(--text); resize: vertical;
+  label { display:block; font-size:13px; color:var(--muted); margin:18px 0 8px; letter-spacing:0.3px; font-weight:500; }
+  label .required { color:var(--gold); }
+  textarea, input[type=text], select {
+    width:100%; padding:14px;
+    background:var(--input-bg);
+    border:1px solid var(--hairline); border-radius:4px;
+    font-family:inherit; font-size:15px; line-height:1.5;
+    color:var(--black); resize:vertical;
+    transition:border-color 0.15s, background 0.15s;
   }
-  textarea:focus, input[type=text]:focus { outline: none; border-color: var(--green); }
-  .checkbox-row { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 24px; font-size: 13px; color: var(--text); line-height: 20px; }
-  .checkbox-row input { margin-top: 3px; accent-color: var(--green); }
-  .btn {
-    display: block; width: 100%; padding: 16px 24px;
-    background: var(--green); color: #fff;
-    text-align: center; text-decoration: none;
-    font-family: inherit; font-size: 14px;
-    letter-spacing: 2px; text-transform: uppercase;
-    border: none; border-radius: 2px; cursor: pointer;
-    transition: background 0.2s; font-weight: 600;
+  textarea:focus, input[type=text]:focus, select:focus {
+    outline:none; border-color:var(--gold-dark); background:#fff;
   }
-  .btn:hover { background: var(--green-dark); }
-  .btn:disabled { background: var(--muted); cursor: not-allowed; }
-  .micro { font-size: 12px; color: var(--muted); text-align: center; margin-top: 18px; line-height: 1.5; }
-  .footer { text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+  textarea { min-height:90px; }
+  textarea::placeholder, input::placeholder { color:#aa9d7a; font-style:italic; }
+
+  .btn-group { display:flex; gap:8px; position:relative; }
+  .btn-group label { flex:1; margin:0; padding:12px 8px; border:1px solid var(--hairline); border-radius:4px; background:var(--input-bg); text-align:center; font-size:13px; color:var(--black); cursor:pointer; font-weight:500; letter-spacing:0.3px; transition:all 0.15s; }
+  .btn-group label:hover { border-color:var(--gold-dark); }
+  .btn-group input[type=radio] { position:absolute; opacity:0; pointer-events:none; }
+  .btn-group input[type=radio]:checked + label { background:var(--green); border-color:var(--green); color:#fff; }
+
+  .radio-row {
+    display:flex; align-items:center; gap:10px;
+    padding:11px 14px; border:1px solid var(--hairline); border-radius:4px;
+    background:var(--input-bg); margin-bottom:6px; cursor:pointer; font-size:14px;
+    transition:border-color 0.15s, background 0.15s;
+  }
+  .radio-row:hover { border-color:var(--gold-dark); }
+  .radio-row input { accent-color:var(--green); }
+
+  .conditional { display:none; animation:fadeIn 0.25s ease-out; }
+  .conditional.show { display:block; }
+  @keyframes fadeIn { from {opacity:0; transform:translateY(-6px);} to {opacity:1; transform:translateY(0);} }
+
+  .submit-btn {
+    display:block; width:100%; padding:16px;
+    background:var(--green); color:#fff; border:none; border-radius:4px;
+    font-family:inherit; font-size:14px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700;
+    cursor:pointer; margin-top:24px; transition:background 0.2s;
+  }
+  .submit-btn:hover { background:var(--green-dark); }
+  .submit-btn:disabled { background:var(--muted); cursor:not-allowed; }
+
+  .micro { font-size:12px; color:var(--muted); text-align:center; margin-top:18px; line-height:1.5; }
+  .order-line { font-size:11px; color:var(--muted); text-align:center; margin:-12px 0 24px; letter-spacing:0.5px; }
+
+  @media (max-width:480px) {
+    .page { padding:0 16px 48px; }
+    h1 { font-size:26px; }
+    .star { width:48px; height:48px; }
+    .rating-readout .num { font-size:28px; }
+  }
 </style>
 </head>
 <body>
 <div class="page">
-  <div class="brand">VAHDAM</div>
+  <div class="trust-strip"><span>♡ 250K+ 4.9★ Reviews · We Read Every One ♡</span></div>
+  <div class="brand">VAHDAM<sup>®</sup></div>
+  <div class="brand-sub">INDIA</div>
   <div class="rule"></div>
 
-  <div class="card">
-    <h1>Thanks for telling us.</h1>
-    <p class="sub">Fine-tune your rating below if you'd like, and add a line for us.</p>
+  <h1>Thanks for telling us. <span class="accent">Now the rest.</span></h1>
+  <p class="sub">Confirm your rating below — and add a line or two so we can do something useful with it.</p>
 
-    <div class="stars-wrap">
-      <div class="stars-label">Your rating</div>
-      <div class="stars" id="stars" role="slider" aria-label="Rating from 0.5 to 5 stars in 0.5 increments">
-        <div class="row" aria-hidden="true">★★★★★</div>
-        <div class="fill" id="fill">★★★★★</div>
-        <div class="hit" data-rating="0.5" style="left:0%;"></div>
-        <div class="hit" data-rating="1"   style="left:10%;"></div>
-        <div class="hit" data-rating="1.5" style="left:20%;"></div>
-        <div class="hit" data-rating="2"   style="left:30%;"></div>
-        <div class="hit" data-rating="2.5" style="left:40%;"></div>
-        <div class="hit" data-rating="3"   style="left:50%;"></div>
-        <div class="hit" data-rating="3.5" style="left:60%;"></div>
-        <div class="hit" data-rating="4"   style="left:70%;"></div>
-        <div class="hit" data-rating="4.5" style="left:80%;"></div>
-        <div class="hit" data-rating="5"   style="left:90%;"></div>
-      </div>
+  <div class="order-line" id="orderLine" style="display:none;">Order <strong style="color:var(--black);" id="orderId"></strong></div>
+
+  <div class="stars-card">
+    <div class="stars-label">— Tap to Rate —</div>
+    <div class="stars-subhead">How was it, honestly?</div>
+
+    <div class="stars-row" id="starsRow">
+      <div class="star"><div class="star-half star-half-l" data-rating="0.5"></div><div class="star-half star-half-r" data-rating="1"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="1.5"></div><div class="star-half star-half-r" data-rating="2"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="2.5"></div><div class="star-half star-half-r" data-rating="3"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="3.5"></div><div class="star-half star-half-r" data-rating="4"></div></div>
+      <div class="star"><div class="star-half star-half-l" data-rating="4.5"></div><div class="star-half star-half-r" data-rating="5"></div></div>
     </div>
 
-    <div class="rating-display">
-      <span class="value empty" id="ratingValue">—</span>
-      <span class="unit" id="ratingUnit"></span>
+    <div class="rating-readout" id="ratingReadout">
+      <span class="num" id="ratingNum">— · —</span><span class="unit">/ 5 Stars</span>
     </div>
-    <p class="rating-hint" id="ratingHint">Move across the stars to preview. Tap to lock it in.</p>
-
-    <form id="feedbackForm">
-      <label for="fb">A line or two for us</label>
-      <textarea id="fb" rows="5" placeholder="Whatever you'd tell a friend who asked about it." required></textarea>
-      <div class="checkbox-row">
-        <input type="checkbox" id="optin">
-        <label for="optin" style="margin:0; color: var(--text); font-size: 13px;">Get back to me — I'd like a person to follow up.</label>
-      </div>
-      <input type="hidden" id="rating-input" name="rating" value="">
-      <button type="submit" class="btn" id="submitBtn">Send</button>
-    </form>
-
-    <p class="micro">Two minutes, give or take. That's the whole thing.</p>
+    <div class="rating-hint" id="ratingHint">Hover a star to preview · Tap to lock</div>
   </div>
 
-  <div class="footer">Vahdam India · New Delhi</div>
+  <form id="feedbackForm" novalidate>
+    <label for="fb">A line or two for us <span class="required">*</span></label>
+    <textarea id="fb" rows="4" placeholder="e.g. The spice level was perfect but it arrived two days late..." required></textarea>
+
+    <div class="conditional" id="conditionalFields">
+      <label for="fellShort">What specifically fell short?</label>
+      <select id="fellShort">
+        <option value="">— Choose one (optional) —</option>
+        <option value="taste">Taste / flavor</option>
+        <option value="freshness">Freshness</option>
+        <option value="delivery">Delivery / shipping</option>
+        <option value="packaging">Packaging</option>
+        <option value="other">Something else</option>
+      </select>
+
+      <label>Would you order from us again?</label>
+      <div class="btn-group">
+        <input type="radio" name="reorder" id="reorder-yes" value="yes"><label for="reorder-yes">Yes</label>
+        <input type="radio" name="reorder" id="reorder-maybe" value="maybe"><label for="reorder-maybe">Maybe</label>
+        <input type="radio" name="reorder" id="reorder-no" value="no"><label for="reorder-no">No</label>
+      </div>
+
+      <label>Best way to follow up?</label>
+      <label class="radio-row"><input type="radio" name="followup" value="email" checked> <span>Email me</span></label>
+      <label class="radio-row"><input type="radio" name="followup" value="phone"> <span>Call me</span></label>
+      <label class="radio-row"><input type="radio" name="followup" value="none"> <span>Don't follow up — just listen</span></label>
+    </div>
+
+    <input type="hidden" id="rating-input" name="rating" value="">
+    <button type="submit" class="submit-btn" id="submitBtn">Send Feedback</button>
+  </form>
+
+  <p class="micro">A real person reads every submission. Reply within 1–2 working days when contact is requested.</p>
 </div>
 
 <script>
-  // ---- Read URL params from the mailer link ----
   const params = new URLSearchParams(location.search);
   let lockedRating = parseFloat(params.get('rating') || '0');
   const firstName = (params.get('name') || '').trim();
+  const orderId = (params.get('order_id') || params.get('orderId') || '').trim();
 
-  // ---- DOM refs ----
-  const fill         = document.getElementById('fill');
-  const stars        = document.getElementById('stars');
-  const ratingValue  = document.getElementById('ratingValue');
-  const ratingUnit   = document.getElementById('ratingUnit');
-  const ratingHint   = document.getElementById('ratingHint');
-  const ratingInput  = document.getElementById('rating-input');
-  const form         = document.getElementById('feedbackForm');
-  const fbInput      = document.getElementById('fb');
-  const optinInput   = document.getElementById('optin');
-  const submitBtn    = document.getElementById('submitBtn');
+  if (orderId) {
+    document.getElementById('orderLine').style.display = 'block';
+    document.getElementById('orderId').textContent = '#' + orderId;
+  }
 
-  // ---- Render a given rating (hover preview or locked) ----
-  function paintRating(r) {
-    if (r > 0 && r <= 5) {
-      fill.style.width = (r / 5 * 100) + '%';
-      ratingValue.textContent = r.toFixed(1).replace(/\.0$/, '');
-      ratingValue.classList.remove('empty');
-      ratingUnit.textContent = '/ 5 STARS';
+  const halves = document.querySelectorAll('.star-half');
+  const ratingNum = document.getElementById('ratingNum');
+  const ratingReadout = document.getElementById('ratingReadout');
+  const ratingHint = document.getElementById('ratingHint');
+  const ratingInput = document.getElementById('rating-input');
+  const conditional = document.getElementById('conditionalFields');
+
+  function paintStars(r) {
+    halves.forEach(h => {
+      const v = parseFloat(h.dataset.rating);
+      if (r > 0 && v <= r) h.classList.add('filled');
+      else h.classList.remove('filled');
+    });
+  }
+
+  function setReadout(r, isLocked) {
+    if (r > 0) {
+      const display = r % 1 === 0 ? r.toString() : r.toFixed(1);
+      ratingNum.textContent = display;
+      if (isLocked) ratingReadout.classList.add('is-set');
     } else {
-      fill.style.width = '0%';
-      ratingValue.textContent = '—';
-      ratingValue.classList.add('empty');
-      ratingUnit.textContent = '';
+      ratingNum.textContent = '— · —';
+      ratingReadout.classList.remove('is-set');
     }
   }
 
-  // ---- On load: apply rating that came from the mailer ----
-  if (lockedRating > 0 && lockedRating <= 5) {
-    paintRating(lockedRating);
-    ratingInput.value = lockedRating;
-    ratingHint.textContent = 'That\u2019s what you picked from the email. Tap a different star to change.';
+  function applyLockedRating(r, fromUrl) {
+    lockedRating = r;
+    ratingInput.value = r;
+    paintStars(r);
+    setReadout(r, true);
+    if (r > 0 && r < 4) {
+      conditional.classList.add('show');
+      ratingHint.textContent = fromUrl ? 'Picked up from your email · tap to change' : 'Anything below 4★ goes to our team, not public reviews';
+    } else if (r >= 4) {
+      conditional.classList.remove('show');
+      ratingHint.textContent = fromUrl ? 'Picked up from your email · tap to change' : 'Locked in';
+    } else {
+      ratingHint.textContent = '';
+    }
+    ratingHint.classList.remove('error');
   }
 
-  // ---- Hover preview on each hit zone ----
-  const hits = stars.querySelectorAll('.hit');
-  hits.forEach(hit => {
-    hit.addEventListener('mouseenter', () => {
-      paintRating(parseFloat(hit.dataset.rating));
+  // Hover preview — show rating in readout without locking
+  halves.forEach(h => {
+    h.addEventListener('mouseenter', () => {
+      const v = parseFloat(h.dataset.rating);
+      paintStars(v);
+      setReadout(v, false);
     });
-    hit.addEventListener('click', () => {
-      lockedRating = parseFloat(hit.dataset.rating);
-      ratingInput.value = lockedRating;
-      paintRating(lockedRating);
-      ratingHint.classList.remove('error');
-      ratingHint.textContent = 'Locked in. Hover to preview a different one.';
-    });
+    h.addEventListener('click', () => applyLockedRating(parseFloat(h.dataset.rating), false));
+  });
+  document.getElementById('starsRow').addEventListener('mouseleave', () => {
+    paintStars(lockedRating);
+    setReadout(lockedRating, lockedRating > 0);
   });
 
-  // ---- On mouseleave: snap back to whatever's locked ----
-  stars.addEventListener('mouseleave', () => {
-    paintRating(lockedRating);
-  });
+  // Apply rating from URL on load
+  if (lockedRating > 0 && lockedRating <= 5) applyLockedRating(lockedRating, true);
 
-  // ---- Submit: redirect to thank-you.html with everything we want to surface ----
-  form.addEventListener('submit', (e) => {
+  document.getElementById('feedbackForm').addEventListener('submit', (e) => {
     e.preventDefault();
-
     if (!lockedRating || lockedRating <= 0) {
       ratingHint.classList.add('error');
-      ratingHint.textContent = 'Please pick a rating first.';
-      stars.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ratingHint.textContent = 'Please tap a star first.';
+      document.getElementById('starsRow').scrollIntoView({behavior:'smooth', block:'center'});
       return;
     }
+    const fb = document.getElementById('fb').value.trim();
+    if (!fb) { document.getElementById('fb').focus(); return; }
 
-    const feedback = fbInput.value.trim();
-    if (!feedback) {
-      fbInput.focus();
-      return;
-    }
-
+    const submitBtn = document.getElementById('submitBtn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending\u2026';
+    submitBtn.textContent = 'Sending…';
 
-    // ---- BUILD redirect URL ----
-    // NOTE: this client-side redirect echoes data back to the thank-you page
-    // so the user sees their submission confirmed. To actually CAPTURE this
-    // feedback for Vahdam's team, also POST these fields to a backend (Klaviyo,
-    // Formspree, a serverless endpoint, etc.) before redirecting.
     const out = new URLSearchParams();
     out.set('rating', lockedRating);
-    out.set('feedback', feedback);
-    out.set('optin', optinInput.checked ? '1' : '0');
+    out.set('feedback', fb);
     if (firstName) out.set('name', firstName);
+    if (orderId) out.set('order_id', orderId);
 
-    // Preserve attribution / identifier params from the mailer link
+    if (lockedRating < 4) {
+      const fs = document.getElementById('fellShort').value;
+      if (fs) out.set('fell_short', fs);
+      const re = document.querySelector('input[name=reorder]:checked');
+      if (re) out.set('reorder', re.value);
+      const fu = document.querySelector('input[name=followup]:checked');
+      if (fu) out.set('followup', fu.value);
+    }
     ['token','email','utm_source','utm_medium','utm_campaign','variant'].forEach(k => {
       const v = params.get(k);
       if (v) out.set(k, v);
     });
-
     window.location.href = 'thank-you.html?' + out.toString();
   });
 </script>
