@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tell us about your last order — Vahdam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#004A2B; --green-dark:#003820; --gold:#AB8743; --gold-dark:#8b6d35;
+    --black:#171717; --cream:#FBF5EA; --text:#171717; --muted:#6b6b6b;
+    --hairline:#e5dfd0; --grey-bg:#f5f5f5;
+    --serif: 'Lao MN','Lao Sangam MN','Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:  'Proxima Nova','Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: var(--sans); background: var(--grey-bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+  .page { max-width: 600px; margin: 0 auto; padding: 48px 24px 80px; }
+  .brand { font-size: 13px; letter-spacing: 5px; color: var(--green); text-align: center; font-weight: 700; }
+  .rule { width: 48px; height: 1px; background: var(--gold); margin: 14px auto 36px; }
+  .card { background: #fff; border-radius: 6px; padding: 44px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  h1 { font-family: var(--serif); font-size: 30px; line-height: 1.25; color: var(--green); font-weight: 600; margin: 0 0 12px; text-align: center; }
+  .sub { font-size: 15px; color: var(--muted); text-align: center; margin: 0 0 16px; line-height: 1.55; }
+
+  /* ===== Star widget — half-star precision with live hover preview ===== */
+  .stars-wrap { text-align: center; padding: 18px 0 4px; }
+  .stars-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
+  .stars {
+    position: relative; display: inline-block;
+    font-size: 56px; line-height: 1;
+    color: var(--hairline); user-select: none; cursor: pointer;
+  }
+  .stars .row { white-space: nowrap; letter-spacing: 4px; }
+  .stars .fill {
+    position: absolute; top: 0; left: 0; height: 100%;
+    overflow: hidden; pointer-events: none;
+    color: var(--gold);
+    transition: width 0.08s linear;
+    width: 0%;
+    white-space: nowrap; letter-spacing: 4px;
+  }
+  .stars .hit { position: absolute; top: 0; height: 100%; width: 10%; }
+
+  /* Huge live-updating rating display */
+  .rating-display { text-align: center; margin: 22px 0 4px; min-height: 48px; }
+  .rating-display .value {
+    font-family: var(--serif); font-size: 42px; color: var(--green);
+    font-weight: 600; line-height: 1; display: inline-block;
+    transition: color 0.15s;
+  }
+  .rating-display .value.empty { color: var(--hairline); font-size: 28px; }
+  .rating-display .unit {
+    font-size: 13px; color: var(--muted);
+    letter-spacing: 2px; text-transform: uppercase; margin-left: 6px;
+  }
+  .rating-hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 32px; font-style: italic; }
+
+  /* Form */
+  label { display: block; font-size: 13px; color: var(--muted); margin: 22px 0 8px; letter-spacing: 0.5px; }
+  textarea, input[type=text] {
+    width: 100%; padding: 14px;
+    border: 1px solid var(--hairline); border-radius: 3px;
+    font-family: inherit; font-size: 15px; line-height: 1.5;
+    background: #fefdf9; color: var(--text); resize: vertical;
+  }
+  textarea:focus, input[type=text]:focus { outline: none; border-color: var(--green); }
+  .checkbox-row { display: flex; align-items: flex-start; gap: 10px; margin: 18px 0 24px; font-size: 13px; color: var(--text); line-height: 20px; }
+  .checkbox-row input { margin-top: 3px; accent-color: var(--green); }
+  .btn {
+    display: block; width: 100%; padding: 16px 24px;
+    background: var(--green); color: #fff;
+    text-align: center; text-decoration: none;
+    font-family: inherit; font-size: 14px;
+    letter-spacing: 2px; text-transform: uppercase;
+    border: none; border-radius: 2px; cursor: pointer;
+    transition: background 0.2s; font-weight: 600;
+  }
+  .btn:hover { background: var(--green-dark); }
+  .micro { font-size: 12px; color: var(--muted); text-align: center; margin-top: 18px; line-height: 1.5; }
+  .footer { text-align: center; margin-top: 32px; font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="brand">VAHDAM</div>
+  <div class="rule"></div>
+
+  <div class="card">
+    <h1>Thanks for telling us.</h1>
+    <p class="sub">Fine-tune your rating below if you'd like, and add a line for us.</p>
+
+    <div class="stars-wrap">
+      <div class="stars-label">Your rating</div>
+      <div class="stars" id="stars" role="slider" aria-label="Rating from 0.5 to 5 stars in 0.5 increments">
+        <div class="row" aria-hidden="true">★★★★★</div>
+        <div class="fill" id="fill">★★★★★</div>
+        <div class="hit" data-rating="0.5" style="left:0%;"></div>
+        <div class="hit" data-rating="1"   style="left:10%;"></div>
+        <div class="hit" data-rating="1.5" style="left:20%;"></div>
+        <div class="hit" data-rating="2"   style="left:30%;"></div>
+        <div class="hit" data-rating="2.5" style="left:40%;"></div>
+        <div class="hit" data-rating="3"   style="left:50%;"></div>
+        <div class="hit" data-rating="3.5" style="left:60%;"></div>
+        <div class="hit" data-rating="4"   style="left:70%;"></div>
+        <div class="hit" data-rating="4.5" style="left:80%;"></div>
+        <div class="hit" data-rating="5"   style="left:90%;"></div>
+      </div>
+    </div>
+
+    <div class="rating-display">
+      <span class="value empty" id="ratingValue">—</span>
+      <span class="unit" id="ratingUnit"></span>
+    </div>
+    <p class="rating-hint" id="ratingHint">Move across the stars to preview. Tap to lock it in.</p>
+
+    <form id="feedbackForm">
+      <label for="fb">A line or two for us</label>
+      <textarea id="fb" rows="5" placeholder="Whatever you'd tell a friend who asked about it." required></textarea>
+      <div class="checkbox-row">
+        <input type="checkbox" id="optin">
+        <label for="optin" style="margin:0; color: var(--text); font-size: 13px;">Get back to me — I'd like a person to follow up.</label>
+      </div>
+      <input type="hidden" id="rating-input" name="rating" value="">
+      <button type="submit" class="btn">Send</button>
+    </form>
+
+    <p class="micro">Two minutes, give or take. That's the whole thing.</p>
+  </div>
+
+  <div class="footer">Vahdam India · New Delhi</div>
+</div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  let lockedRating = parseFloat(params.get('rating') || '0');
+
+  const fill = document.getE
