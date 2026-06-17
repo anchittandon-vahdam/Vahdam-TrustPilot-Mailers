@@ -1,0 +1,366 @@
+{
+  "asset_count": 27,
+  "asset_hosts": [
+    "d3k81ch9hvuctc.cloudfront.net",
+    "vahdam.com",
+    "www.vahdam.co.uk",
+    "www.vahdam.com"
+  ],
+  "assets": [
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/facebook_96.png",
+      "category": "social",
+      "storage_path": "social/facebook_96.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html",
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html",
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html",
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html",
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html",
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html",
+        "PP15 - 75 mornings. The quiet shifts start to add up.html",
+        "PP16 - Your Month 4 gift. The Cosmos glass.html",
+        "PP17 - Four days to 90. The waistline window is here.html",
+        "PP18 - 90 days. Your craving reset is done.html",
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP2 - Read this before your first cup.html",
+        "PP20 - From a 12-week reset to your new normal.html",
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html",
+        "PP22 - Four months. This is your new normal.html",
+        "PP3 - Week one -what to notice in your body.html",
+        "PP4 - Two weeks in -how\u2019s your bloating?.html",
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html",
+        "PP6 - Your Month 2 gift ships very soon.html",
+        "PP7 - Notice anything in the mirror?.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html",
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 22
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/instagram_96.png",
+      "category": "social",
+      "storage_path": "social/instagram_96.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html",
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html",
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html",
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html",
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html",
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html",
+        "PP15 - 75 mornings. The quiet shifts start to add up.html",
+        "PP16 - Your Month 4 gift. The Cosmos glass.html",
+        "PP17 - Four days to 90. The waistline window is here.html",
+        "PP18 - 90 days. Your craving reset is done.html",
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP2 - Read this before your first cup.html",
+        "PP20 - From a 12-week reset to your new normal.html",
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html",
+        "PP22 - Four months. This is your new normal.html",
+        "PP3 - Week one -what to notice in your body.html",
+        "PP4 - Two weeks in -how\u2019s your bloating?.html",
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html",
+        "PP6 - Your Month 2 gift ships very soon.html",
+        "PP7 - Notice anything in the mirror?.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html",
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 22
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/tiktok_96.png",
+      "category": "social",
+      "storage_path": "social/tiktok_96.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html",
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html",
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html",
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html",
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html",
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html",
+        "PP15 - 75 mornings. The quiet shifts start to add up.html",
+        "PP16 - Your Month 4 gift. The Cosmos glass.html",
+        "PP17 - Four days to 90. The waistline window is here.html",
+        "PP18 - 90 days. Your craving reset is done.html",
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP2 - Read this before your first cup.html",
+        "PP20 - From a 12-week reset to your new normal.html",
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html",
+        "PP22 - Four months. This is your new normal.html",
+        "PP3 - Week one -what to notice in your body.html",
+        "PP4 - Two weeks in -how\u2019s your bloating?.html",
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html",
+        "PP6 - Your Month 2 gift ships very soon.html",
+        "PP7 - Notice anything in the mirror?.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html",
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 22
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/assets/email/buttons/subtleinverse/x_twitter_96.png",
+      "category": "social",
+      "storage_path": "social/x_twitter_96.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html",
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html",
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html",
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html",
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html",
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html",
+        "PP15 - 75 mornings. The quiet shifts start to add up.html",
+        "PP16 - Your Month 4 gift. The Cosmos glass.html",
+        "PP17 - Four days to 90. The waistline window is here.html",
+        "PP18 - 90 days. Your craving reset is done.html",
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP2 - Read this before your first cup.html",
+        "PP20 - From a 12-week reset to your new normal.html",
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html",
+        "PP22 - Four months. This is your new normal.html",
+        "PP3 - Week one -what to notice in your body.html",
+        "PP4 - Two weeks in -how\u2019s your bloating?.html",
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html",
+        "PP6 - Your Month 2 gift ships very soon.html",
+        "PP7 - Notice anything in the mirror?.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html",
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 22
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/0231cbad-d1e1-4277-86a9-620a578cb4b7.png",
+      "category": "heroes",
+      "storage_path": "heroes/0231cbad-d1e1-4277-86a9-620a578cb4b7.png",
+      "used_in": [
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/030425c7-ebb2-4a89-9913-c0075eaca0af.png",
+      "category": "heroes",
+      "storage_path": "heroes/030425c7-ebb2-4a89-9913-c0075eaca0af.png",
+      "used_in": [
+        "PP18 - 90 days. Your craving reset is done.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/09ad5d23-0242-4c7f-af15-2e5ce9b490d2.png",
+      "category": "heroes",
+      "storage_path": "heroes/09ad5d23-0242-4c7f-af15-2e5ce9b490d2.png",
+      "used_in": [
+        "PP15 - 75 mornings. The quiet shifts start to add up.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/33b3eafc-8460-448d-9433-ff732c5a36fa.png",
+      "category": "heroes",
+      "storage_path": "heroes/33b3eafc-8460-448d-9433-ff732c5a36fa.png",
+      "used_in": [
+        "PP20 - From a 12-week reset to your new normal.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/3887fae1-3e82-4494-87a6-875c8d35f934.png",
+      "category": "heroes",
+      "storage_path": "heroes/3887fae1-3e82-4494-87a6-875c8d35f934.png",
+      "used_in": [
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/414b03b7-ec24-4a7e-8c1d-77d3350c9dcc.png",
+      "category": "heroes",
+      "storage_path": "heroes/414b03b7-ec24-4a7e-8c1d-77d3350c9dcc.png",
+      "used_in": [
+        "PP22 - Four months. This is your new normal.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/51d82ccc-f899-4c8f-9e8b-35a41f4b5afc.png",
+      "category": "heroes",
+      "storage_path": "heroes/51d82ccc-f899-4c8f-9e8b-35a41f4b5afc.png",
+      "used_in": [
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/7717e7ad-27f3-4a99-8b5f-3fe784aacb52.png",
+      "category": "heroes",
+      "storage_path": "heroes/7717e7ad-27f3-4a99-8b5f-3fe784aacb52.png",
+      "used_in": [
+        "PP6 - Your Month 2 gift ships very soon.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/896c84d5-7afe-4989-886a-c92ad1332f4b.png",
+      "category": "heroes",
+      "storage_path": "heroes/896c84d5-7afe-4989-886a-c92ad1332f4b.png",
+      "used_in": [
+        "PP4 - Two weeks in -how\u2019s your bloating?.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/8e247868-45be-42b5-8e6c-6d3c3733a8af.png",
+      "category": "heroes",
+      "storage_path": "heroes/8e247868-45be-42b5-8e6c-6d3c3733a8af.png",
+      "used_in": [
+        "PP17 - Four days to 90. The waistline window is here.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/97640c82-7716-4ad5-95cc-801ca0318ba4.png",
+      "category": "heroes",
+      "storage_path": "heroes/97640c82-7716-4ad5-95cc-801ca0318ba4.png",
+      "used_in": [
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/9bd5c718-0d82-48d5-857d-340b160b899d.png",
+      "category": "heroes",
+      "storage_path": "heroes/9bd5c718-0d82-48d5-857d-340b160b899d.png",
+      "used_in": [
+        "PP2 - Read this before your first cup.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/ad355fd3-bc40-4b60-9bf3-9172a2fa1429.png",
+      "category": "heroes",
+      "storage_path": "heroes/ad355fd3-bc40-4b60-9bf3-9172a2fa1429.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/aedc8d64-6bb2-4ab8-a536-d7d31e285187.png",
+      "category": "heroes",
+      "storage_path": "heroes/aedc8d64-6bb2-4ab8-a536-d7d31e285187.png",
+      "used_in": [
+        "PP3 - Week one -what to notice in your body.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/af3b5b28-5a9f-4176-a99f-e6cf64a85e2a.png",
+      "category": "heroes",
+      "storage_path": "heroes/af3b5b28-5a9f-4176-a99f-e6cf64a85e2a.png",
+      "used_in": [
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/bbf7bfd3-7cda-49b0-a3cc-ede705017416.png",
+      "category": "heroes",
+      "storage_path": "heroes/bbf7bfd3-7cda-49b0-a3cc-ede705017416.png",
+      "used_in": [
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/c60e1366-c8fb-4df5-a28a-2241f0fefb35.png",
+      "category": "heroes",
+      "storage_path": "heroes/c60e1366-c8fb-4df5-a28a-2241f0fefb35.png",
+      "used_in": [
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html"
+      ],
+      "uses": 2
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/e4c99b03-cf4e-464b-b1aa-8877e8050931.png",
+      "category": "heroes",
+      "storage_path": "heroes/e4c99b03-cf4e-464b-b1aa-8877e8050931.png",
+      "used_in": [
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/e76fa83c-f4a1-49f0-85dc-d74245a94eaa.png",
+      "category": "heroes",
+      "storage_path": "heroes/e76fa83c-f4a1-49f0-85dc-d74245a94eaa.png",
+      "used_in": [
+        "PP16 - Your Month 4 gift. The Cosmos glass.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/f0ddf95b-f329-4e53-9da1-73d1c4abc737.png",
+      "category": "heroes",
+      "storage_path": "heroes/f0ddf95b-f329-4e53-9da1-73d1c4abc737.png",
+      "used_in": [
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/f9aa61c1-c314-447c-a104-4740ce20d330.png",
+      "category": "heroes",
+      "storage_path": "heroes/f9aa61c1-c314-447c-a104-4740ce20d330.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html",
+        "PP10 - 44 days in. If you\u2019re not feeling much yet, read this.html",
+        "PP11 - Fifty cups in. Two weeks until your waistline check-in.html",
+        "PP12 - Your Month 3 gift. The Rover travel bottle.html",
+        "PP13 - 60 days. Cravings should be quieter. Are they?.html",
+        "PP14 - 70 days. The habit you didn\u2019t notice building.html",
+        "PP15 - 75 mornings. The quiet shifts start to add up.html",
+        "PP16 - Your Month 4 gift. The Cosmos glass.html",
+        "PP17 - Four days to 90. The waistline window is here.html",
+        "PP18 - 90 days. Your craving reset is done.html",
+        "PP19 - Day 100. You\u2019re in the 15%.html",
+        "PP2 - Read this before your first cup.html",
+        "PP20 - From a 12-week reset to your new normal.html",
+        "PP21 - Your Month 5 gift. The herbal tea sampler.html",
+        "PP22 - Four months. This is your new normal.html",
+        "PP3 - Week one -what to notice in your body.html",
+        "PP4 - Two weeks in -how\u2019s your bloating?.html",
+        "PP5 - Pack 2 ships in seven days -and Week 4 is when clothes start to fit different.html",
+        "PP6 - Your Month 2 gift ships very soon.html",
+        "PP7 - Notice anything in the mirror?.html",
+        "PP8 - Pack 2 is here. This is the month the cravings start to quiet.html",
+        "PP9 - 38 days in. The cravings start to soften.html"
+      ],
+      "uses": 22
+    },
+    {
+      "url": "https://www.vahdam.co.uk/cdn/shop/files/3dc7e0e4-19df-493b-b458-101bebac3085_1.png?v=1778910761&width=800",
+      "category": "heroes",
+      "storage_path": "heroes/3dc7e0e4-19df-493b-b458-101bebac3085_1-7d5584.png",
+      "used_in": [
+        "PP1 - Your craving-reset kit is on the way.html"
+      ],
+      "uses": 1
+    },
+    {
+      "url": "https://www.vahdam.com/cdn/shop/files/logo-website.png?width=400",
+      "category": "logos",
+      "storage_path": "logos/logo-website-817742.png",
+      "used_in": [
+        "A - Chai Morning Ritual.html",
+        "B - Conversations Over Chai.html",
+        "C - A Few Cups In.html",
+        "D - Connoisseur (Tasting Notes).html",
+        "E - Honesty Trade.html",
+        "F - Second Pour (backup, non-openers).html",
+        "G - One Last Thing (backup, openers no-click).html"
+      ],
+      "uses": 14
+    }
+  ]
+}
