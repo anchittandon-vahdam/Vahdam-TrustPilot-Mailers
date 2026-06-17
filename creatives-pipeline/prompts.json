@@ -1,0 +1,157 @@
+{
+  "product_reference": "VAHDAM Ashwagandha Coffee+ — deep forest-green matte stand-up flat pouch, gold/cream lettering, 'Coffee+' prominent on front, 'KSM-66 Ashwagandha' callout, 'VAHDAM' wordmark at top. Premium, clean, no busy patterns.",
+  "global_style": "Premium lifestyle product photography. Email banner proportions, roughly 2:1 landscape, 1600x800 px. Warm neutral palette. Clean light negative space in the top third for headline text overlay. Soft natural light, gentle shadows, minimal props. The pouch label must be accurate and legible.",
+  "creatives": [
+    {
+      "id": "PP1",
+      "role": "hero_pouch",
+      "source_url": "https://www.vahdam.co.uk/cdn/shop/files/3dc7e0e4-19df-493b-b458-101bebac3085_1.png?v=1778910761&width=800",
+      "alt": "Your VAHDAM Ashwagandha Coffee starter kit — on its way to begin the ritual",
+      "prompt": "A VAHDAM Ashwagandha Coffee+ starter-kit arrangement on a clean linen or stone surface: the dark forest-green pouch as hero, a sealed kraft shipping box slightly open to reveal it, a small branded welcome card, a cinnamon stick or cardamom pod as accent. Mood: anticipation, a curated unboxing."
+    },
+    {
+      "id": "PP2",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/9bd5c718-0d82-48d5-857d-340b160b899d.png",
+      "alt": "Your first pack of VAHDAM Ashwagandha Coffee, ready for the first cup",
+      "prompt": "The VAHDAM Ashwagandha Coffee+ dark green pouch next to a ceramic mug of frothy golden-brown coffee on light marble or pale wood, a small wooden scoop beside it, gentle steam rising. Mood: fresh-start, first-cup ritual."
+    },
+    {
+      "id": "PP3",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/aedc8d64-6bb2-4ab8-a536-d7d31e285187.png",
+      "alt": "The VAHDAM Ashwagandha Coffee morning ritual, six days in",
+      "prompt": "Soft golden window light from the left. The VAHDAM Ashwagandha Coffee+ pouch on a wooden counter or tray beside a half-drunk ceramic mug, a small open journal, a folded linen napkin. Mood: this is becoming routine — comfortable, settled."
+    },
+    {
+      "id": "PP4",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/896c84d5-7afe-4989-886a-c92ad1332f4b.png",
+      "alt": "VAHDAM Ashwagandha Coffee, twelve days into the daily ritual — the first milestone",
+      "prompt": "The VAHDAM Ashwagandha Coffee+ pouch prominent on pale marble or linen, a small milestone motif implied (about a dozen coffee beans arranged nearby, or a small tag), a mug of dark coffee beside it. Mood: calm, milestone-marking."
+    },
+    {
+      "id": "PP5",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/51d82ccc-f899-4c8f-9e8b-35a41f4b5afc.png",
+      "alt": "Your VAHDAM Ashwagandha Coffee second pack, shipping into the Week 4 milestone",
+      "prompt": "A fresh, unopened VAHDAM Ashwagandha Coffee+ pouch partially out of a small branded kraft shipping box, a ceramic mug of coffee nearby, clean pale background. Mood: a new pack has just arrived, Week 4 begins."
+    },
+    {
+      "id": "PP6",
+      "role": "gift_hero_with_pouch_prop",
+      "gift_item": "VAHDAM Verve insulated travel bottle (stainless steel, matte finish, minimalist)",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/7717e7ad-27f3-4a99-8b5f-3fe784aacb52.png",
+      "alt": "VAHDAM Verve insulated bottle — your Month 2 gift",
+      "prompt": "Hero: a sleek VAHDAM Verve insulated travel bottle on light wood or stone. Supporting prop: the VAHDAM Ashwagandha Coffee+ dark green pouch placed behind or beside the bottle. Mood: gift/reward, receiving something special."
+    },
+    {
+      "id": "PP8",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/c60e1366-c8fb-4df5-a28a-2241f0fefb35.png",
+      "alt": "Your VAHDAM Ashwagandha Coffee second pack, the start of Month 2",
+      "prompt": "A fresh Month 2 VAHDAM Ashwagandha Coffee+ pouch on pale wood or marble in clean morning light, a steaming ceramic mug and perhaps a small calendar/planner suggesting Month 2. Mood: new chapter, routine established, purposeful."
+    },
+    {
+      "id": "PP9",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/af3b5b28-5a9f-4176-a99f-e6cf64a85e2a.png",
+      "alt": "Past the Week 4 milestone — belly lighter, cravings starting to soften",
+      "prompt": "Warm soft light suggesting wellbeing. The VAHDAM Ashwagandha Coffee+ pouch (slightly used, not brand-new) on a light surface, a nearly finished mug, a soft window behind. Mood: quiet, gentle, steady progress."
+    },
+    {
+      "id": "PP10",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/97640c82-7716-4ad5-95cc-801ca0318ba4.png",
+      "alt": "44 days into the daily ritual — the part where most women wonder if it's working",
+      "prompt": "Moody warm morning light, soft shadows. The VAHDAM Ashwagandha Coffee+ pouch on a kitchen counter or window ledge, a half-drunk mug beside it, intimate close-cropped composition. Mood: mid-journey, honest, the quiet middle."
+    },
+    {
+      "id": "PP11",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/f0ddf95b-f329-4e53-9da1-73d1c4abc737.png",
+      "alt": "Fifty cups in — fourteen days from the visible waistline change",
+      "prompt": "The VAHDAM Ashwagandha Coffee+ pouch front and centre with a sense of accumulation — a few empty ceramic cups arranged artfully in the background suggesting 50 cups. Light, airy, slightly triumphant mood."
+    },
+    {
+      "id": "PP12",
+      "role": "gift_hero_with_pouch_prop",
+      "gift_item": "VAHDAM Rover travel bottle (premium stainless-steel travel mug, minimalist)",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/e4c99b03-cf4e-464b-b1aa-8877e8050931.png",
+      "alt": "VAHDAM Rover travel bottle — your Month 3 gift",
+      "prompt": "Hero: a sleek VAHDAM Rover travel bottle on light wood, marble or slate. Supporting prop: the VAHDAM Ashwagandha Coffee+ dark green pouch beside or behind it. Mood: gift/reward."
+    },
+    {
+      "id": "PP13",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/3887fae1-3e82-4494-87a6-875c8d35f934.png",
+      "alt": "Sixty cups in — the start of the waistline window",
+      "prompt": "Bright warm light, optimistic. The VAHDAM Ashwagandha Coffee+ pouch centred on a clean surface, a fresh mug alongside, airy and confident. Mood: milestone-reaching, things are changing. Warm cream and green tones."
+    },
+    {
+      "id": "PP14",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/bbf7bfd3-7cda-49b0-a3cc-ede705017416.png",
+      "alt": "Seventy mornings of the VAHDAM Ashwagandha Coffee ritual",
+      "prompt": "Rich warm golden morning light. The VAHDAM Ashwagandha Coffee+ pouch on a well-used wooden surface or tray, a warm mug, a well-worn notebook. Mood: settled, intimate, habitual — months deep. Amber-warm palette."
+    },
+    {
+      "id": "PP15",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/09ad5d23-0242-4c7f-af15-2e5ce9b490d2.png",
+      "alt": "75 mornings of VAHDAM Ashwagandha Coffee — the quiet shifts adding up",
+      "prompt": "Soft quiet morning light, a habit so embedded it's invisible. The VAHDAM Ashwagandha Coffee+ pouch beside a window, a half-full mug, a small plant or flowers behind. Mood: understated, gentle confidence."
+    },
+    {
+      "id": "PP16",
+      "role": "gift_hero_with_pouch_prop",
+      "gift_item": "VAHDAM Cosmos dual-walled borosilicate glass (clear, double-wall, elegant minimal) filled with a coffee drink",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/e76fa83c-f4a1-49f0-85dc-d74245a94eaa.png",
+      "alt": "VAHDAM Cosmos dual-walled borosilicate glass — your Month 4 gift",
+      "prompt": "Soft studio light. Hero: a VAHDAM Cosmos dual-walled borosilicate glass filled with coffee on light marble or slate. Supporting prop: the VAHDAM Ashwagandha Coffee+ dark green pouch beside it. Mood: premium gift-reveal."
+    },
+    {
+      "id": "PP17",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/8e247868-45be-42b5-8e6c-6d3c3733a8af.png",
+      "alt": "Four days from the Week 12 milestone — the waistline window",
+      "prompt": "Bright anticipatory light. The VAHDAM Ashwagandha Coffee+ pouch on a clean light surface, a fresh mug, perhaps a calendar corner or tick-mark visible. Mood: almost there, elevated excitement."
+    },
+    {
+      "id": "PP18",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/030425c7-ebb2-4a89-9913-c0075eaca0af.png",
+      "alt": "Day 90 — the ritual settled in, and the months ahead where it deepens",
+      "prompt": "Warm settled light, three months of mornings in one calm image. The VAHDAM Ashwagandha Coffee+ pouch in a richly lived-in morning corner: a worn wooden tray, a glowing mug, soft window light. Mood: this is just what mornings are now. Deep warm amber and green."
+    },
+    {
+      "id": "PP19",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/c60e1366-c8fb-4df5-a28a-2241f0fefb35.png",
+      "alt": "Day 100 — in the 15% who stayed the course",
+      "prompt": "Confident bright light, slightly dramatic — sharper shadows, richer contrast. The VAHDAM Ashwagandha Coffee+ pouch on a clean glowing surface, a beautiful mug of fresh coffee. Mood: Day 100, quiet pride, having done what most don't."
+    },
+    {
+      "id": "PP20",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/33b3eafc-8460-448d-9433-ff732c5a36fa.png",
+      "alt": "Day 106 — the daily ritual, months in",
+      "prompt": "Deeply warm unhurried morning light. The VAHDAM Ashwagandha Coffee+ pouch in a habitual morning scene: a soft tray on a counter, rich golden light, a well-used mug, an open book or journal. Mood: four months deep, this is simply life now."
+    },
+    {
+      "id": "PP21",
+      "role": "gift_hero_with_pouch_prop",
+      "gift_item": "VAHDAM herbal tea sampler set — several small colourful tea pouches or tins arranged attractively",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/0231cbad-d1e1-4277-86a9-620a578cb4b7.png",
+      "alt": "VAHDAM herbal tea sampler — your Month 5 gift",
+      "prompt": "Warm soft light. Hero: a VAHDAM herbal tea sampler set arranged attractively on light wood or marble. Supporting prop: the VAHDAM Ashwagandha Coffee+ dark green pouch beside or behind the sampler. Mood: Month 5 gift-reveal reward."
+    },
+    {
+      "id": "PP22",
+      "role": "hero_pouch",
+      "source_url": "https://d3k81ch9hvuctc.cloudfront.net/company/UZL5NY/images/414b03b7-ec24-4a7e-8c1d-77d3350c9dcc.png",
+      "alt": "Four months of the VAHDAM Ashwagandha Coffee ritual — your new normal",
+      "prompt": "Rich warm light, a four-month journey in one image. The VAHDAM Ashwagandha Coffee+ pouch centred on a beautiful morning surface, a perfect mug of coffee, earned comfort. Mood: the most confident, settled 'arrival' image of the series. Rich amber-and-green colour story."
+    }
+  ]
+}
